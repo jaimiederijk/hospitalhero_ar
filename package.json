@@ -1,0 +1,15 @@
+{
+  "name": "hospitalhero_ar",
+  "version": "1.0.0",
+  "description": "ar prototype for hospital hero",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ar",
+    "prototype"
+  ],
+  "author": "jaimie de rijk",
+  "license": "ISC"
+}
