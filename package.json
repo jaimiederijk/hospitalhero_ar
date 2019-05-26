@@ -1,16 +1,16 @@
 {
-  "name": "hospitalhero_ar",
-  "version": "1.0.0",
-  "description": "ar prototype for hospital hero",
-  "main": "app.js",
+  "name": "hospitalhero-ar",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www"
   },
-  "keywords": [
-    "ar",
-    "prototype"
-  ],
-  "author": "jaimie de rijk",
-  "license": "ISC"
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1"
+  }
 }
