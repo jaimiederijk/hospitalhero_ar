@@ -4,10 +4,63 @@ body {
   /* padding: 0px; */
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+a {
+  color: #00B7FF;
+}
 #menu {
   position: fixed;
   top: 0;
+  left: 0;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 1);
+
 }
-a {
-  color: #00B7FF;
+#menu li {
+  list-style: none;
+  text-align: center;
+}
+#menu ul {
+  padding: 0;
+}
+#menu img {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+}
+#menubutton {
+  position: fixed;
+  font-size: 1.5em;
+  background-color: white;
+  font-weight: bold;
+  top: 0;
+  left: 0;
+  z-index: 9;
+}
+#closemenubutton {
+  position: absolute;
+  right: 0;
+  padding: 1rem;
+  font-weight: bold;
+  background-color: white;
+}
+#catchbutton {
+  padding: 1rem;
+  left: 50%;
+  background-color: rgba(58, 243, 0, 0.48);
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 3em;
+  margin-left: -2.5rem;
+  position: fixed;
+  bottom: 0;
+  z-index: 9;
+}
+#catchbutton.nonactive {
+  background-color: rgba(122, 122, 122, 0.5);
+}
+#menu img.hidden {
+  display: none;
+}
+.hidden {
+  display: none;
 }

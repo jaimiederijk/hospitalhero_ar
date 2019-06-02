@@ -1,6 +1,40 @@
-var menu = document.querySelector('#menu')
+var menuButton = document.querySelector('#menubutton');
+var hiroMarker = document.querySelector('#hiromarker');
+var catchButton = document.querySelector('#catchbutton');
+var closeMenuButton = document.querySelector('#closemenubutton');
+var shadowImages = document.querySelectorAll('.shadowimg');
+var aardVarkImg = document.querySelector('#aardvarkimg');
+var menu = document.querySelector('#menu');
 
-menu.addEventListener("click",openMenu)
-function openMenu() {
-  console.log(" frita");
-}
+
+menuButton.addEventListener("click",(e)=>{
+  menu.classList.remove("hidden");
+  menubutton.classList.add("hidden");
+})
+closeMenuButton.addEventListener("click",(e)=>{
+  menu.classList.add("hidden");
+  menubutton.classList.remove("hidden");
+})
+
+catchButton.addEventListener("click",(e)=>{
+  for (var i = 0; i < shadowImages.length; i++) {
+    shadowImages[i].classList.add("hidden");
+  }
+  aardVarkImg.classList.remove("hidden");
+})
+
+
+hiroMarker.addEventListener("markerFound", (e)=>{
+  console.log("hiro found");
+  catchButton.classList.remove("nonactive");
+})
+hiroMarker.addEventListener("markerLost", (e)=>{
+  console.log("hiro lost");
+  catchButton.classList.add("nonactive");
+})
+var onStartSetup = () => {
+  menu.classList.add("hidden");
+  catchButton.classList.add("nonactive");
+  aardVarkImg.classList.add("hidden");
+};
+onStartSetup();

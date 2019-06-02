@@ -8,8 +8,22 @@
   <script src="https://aframe.io/releases/0.9.1/aframe.min.js"></script>
   <script src="/javascripts/aframe-ar.min.js"></script>
   <body>
-    <button type="button" name="menu" id="menu">Menu</button>
+    <button type="button" name="menu" id="menubutton">Menu</button>
+    <section id="menu">
 
+      <ul>
+        <li>
+          <img class="shadowimg" src="/images/shadowaarvark.png" alt="aardvark">
+          <img class="animalimg" id="aardvarkimg" src="/images/aardvark.png" alt="aardvark">
+          <h2>Aardvark</h2>
+        </li>
+        <li>
+          <img class="animalimg" src="/images/dodo.png" alt="dodo">
+          <h2>Dodo</h2>
+        </li>
+      </ul>
+      <button type="button" id="closemenubutton" name="button">Sluit</button>
+    </section>
     <a-scene embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
 
       <!-- <a-entity
@@ -22,7 +36,7 @@
         mtl: url(/images/mybox/obj.mtl)”>
       </a-entity> -->
       <!-- <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box> -->
-      <a-marker-camera preset='hiro'>
+      <a-marker id="hiromarker" preset='hiro'>
         <a-entity
           scale="0.02 0.02 0.02"
           rotation="0 180 -150"
@@ -30,9 +44,13 @@
           obj-model="obj: url(/images/mybox/tinker.obj);
           mtl: url(/images/mybox/obj.mtl)">
         </a-entity>
-      </a-marker-camera>
+      </a-marker>
+      <a-camera-static/>
       <!-- <a-entity camera></a-entity> -->
     </a-scene>
+    <button type="button" id="catchbutton" name="button">
+      Vang
+    </button>
 
 
   </body>
