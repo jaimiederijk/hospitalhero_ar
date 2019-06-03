@@ -5,6 +5,7 @@ var closeMenuButton = document.querySelector('#closemenubutton');
 var shadowImages = document.querySelectorAll('.shadowimg');
 var aardVarkImg = document.querySelector('#aardvarkimg');
 var menu = document.querySelector('#menu');
+var aScene = document.querySelector('a-scene');
 
 
 menuButton.addEventListener("click",(e)=>{
@@ -21,6 +22,8 @@ catchButton.addEventListener("click",(e)=>{
     shadowImages[i].classList.add("hidden");
   }
   aardVarkImg.classList.remove("hidden");
+  aScene.classList.add("tiny");
+  catchButton.classList.add("nonactive");
 })
 
 

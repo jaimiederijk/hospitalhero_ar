@@ -4,6 +4,18 @@ body {
   /* padding: 0px; */
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+body a-scene {
+  max-height: 100%;
+  max-width: 100%;
+  transition: max-height 0.50s ease-out, max-width 0.50s ease-out;
+
+}
+body a-scene.tiny {
+  max-height: 0;
+  max-width: 0;
+  transition: max-height 0.50s ease-in, max-width 0.50s ease-in;
+
+}
 a {
   color: #00B7FF;
 }
@@ -55,8 +67,31 @@ a {
   bottom: 0;
   z-index: 9;
 }
+#catchbutton:not(.nonactive) {
+  -webkit-animation-name: activebutton; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+  -webkit-animation-iteration-count: infinite; /* Safari 4.0 - 8.0 */
+  -webkit-animation-timing-function: ease-in-out;
+  animation-name: activebutton;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
 #catchbutton.nonactive {
   background-color: rgba(122, 122, 122, 0.5);
+
+}
+@-webkit-keyframes activebutton {
+  0% {padding: 1rem;}
+  50% {padding: 1.5rem;}
+  100% {padding: 1rem;}
+}
+
+/* Standard syntax */
+@keyframes activebutton {
+  0% {padding: 1rem;}
+  50% {padding: 1.5rem;}
+  100% {padding: 1rem;}
 }
 #menu img.hidden {
   display: none;
