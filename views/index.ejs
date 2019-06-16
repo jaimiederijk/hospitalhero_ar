@@ -7,52 +7,30 @@
 
   <script src="https://aframe.io/releases/0.9.1/aframe.min.js"></script>
   <script src="/javascripts/aframe-ar.min.js"></script>
-  <body>
-    <button type="button" name="menu" id="menubutton">Menu</button>
-    <section id="menu">
+  <body id="startmenu">
 
-      <ul>
-        <li>
-          <img class="shadowimg" src="/images/shadowaarvark.png" alt="aardvark">
-          <img class="animalimg" id="aardvarkimg" src="/images/aardvark.png" alt="aardvark">
-          <h2>Aardvark</h2>
-        </li>
-        <li>
-          <img class="animalimg" src="/images/dodo.png" alt="dodo">
-          <h2>Dodo</h2>
-        </li>
-      </ul>
-      <button type="button" id="closemenubutton" name="button">Sluit</button>
-    </section>
     <a-scene embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
 
-      <!-- <a-entity
-        rotation= "0 0 0"
-        position="0 0 0"
-        scale="2 2 2"
-        gltf-model=”url(/images/mouse/model.gltf)”>
 
-        obj-model=”obj: url(/images/mybox/tinker.obj);
-        mtl: url(/images/mybox/obj.mtl)”>
-      </a-entity> -->
-      <!-- <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box> -->
-      <a-marker id="hiromarker" preset='hiro'>
-        <a-entity
-          scale="0.02 0.02 0.02"
-          rotation="0 180 -150"
-          position="0 0 1"
-          obj-model="obj: url(/images/mybox/tinker.obj);
-          mtl: url(/images/mybox/obj.mtl)">
-        </a-entity>
-      </a-marker>
       <a-camera-static/>
       <!-- <a-entity camera></a-entity> -->
     </a-scene>
-    <button type="button" id="catchbutton" name="button">
-      Vang
-    </button>
+
+    <header>
+      <h1>HospitalHero</h1>
+      <nav>
+        <ul>
+          <li>
+            <a href="/game"><em>Start</em></a>
+          </li>
+          <!-- <li>
+            <a href="#"></a>
+          </li> -->
+        </ul>
+      </nav>
+    </header>
 
 
   </body>
-  <script src="/javascripts/menu.js"></script>
+  <!-- <script src="/javascripts/menu.js"></script> -->
 </html>

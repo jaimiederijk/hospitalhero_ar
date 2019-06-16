@@ -8,7 +8,7 @@ var danceState = {
   points: 0,
   startStop: false,
   danceMoves: ["A","B","C","D"],
-  danceInstructions:["A","D","D","B","B"],
+  danceInstructions:["A","D","D","B","B","D","D","B","B"],
   currentDanceMove: "B",
 
 }
@@ -30,7 +30,7 @@ var startGame = () => {
     var newDanceMove = danceState.danceMoves[nr];
 
     danceState.danceInstructions.unshift(newDanceMove);
-    if (danceState.danceInstructions.length>5) {
+    if (danceState.danceInstructions.length>9) {
       danceState.danceInstructions.pop();
     }
 
@@ -39,7 +39,10 @@ var startGame = () => {
       danceHtmlElements.danceInstructor[2].innerHTML = danceState.danceInstructions[2];
       danceHtmlElements.danceInstructor[3].innerHTML = danceState.danceInstructions[3];
       danceHtmlElements.danceInstructor[4].innerHTML = danceState.danceInstructions[4];
-
+      danceHtmlElements.danceInstructor[5].innerHTML = danceState.danceInstructions[5];
+      danceHtmlElements.danceInstructor[6].innerHTML = danceState.danceInstructions[6];
+      danceHtmlElements.danceInstructor[7].innerHTML = danceState.danceInstructions[7];
+      danceHtmlElements.danceInstructor[8].innerHTML = danceState.danceInstructions[8];
     // danceHtmlElements.danceInstructor.innerHTML = danceState.danceInstructions;
 
     danceState.currentDanceMove = danceState.danceInstructions[4];
