@@ -5,5 +5,14 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'HospitalHero' });
 });
+router.get('/game', function(req, res, next) {
+  res.render('game', { title: 'HospitalHero' });
+});
+router.get('/whack', function(req, res, next) {
+  res.render('whackamole', { title: 'HospitalHero' });
+});
+router.get('/dance', function(req, res, next) {
+  res.render('dance', { title: 'HospitalHero' });
+});
 
 module.exports = router;

@@ -1,8 +1,17 @@
+@font-face {
+    font-family: 'Chalkduster';
+    src:url('Chalkduster.ttf.woff') format('woff'),
+        font-weight: normal;
+        font-style: normal;
+}
+
 body {
+
   margin: 0px;
   overflow: hidden;
   /* padding: 0px; */
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Chalkduster';
 }
 body a-scene {
   max-height: 100%;
@@ -21,51 +30,88 @@ a {
 }
 #menu {
   position: fixed;
+  width: 100%;
+  height: 89%;
+  border-radius: 2rem;
   top: 0;
   left: 0;
   z-index: 10;
-  background-color: rgba(255, 255, 255, 1);
+  /* background-color: rgba(237, 157, 34, 1); */
+  background: rgb(242,162,39); /* Old browsers */
+  background: -moz-linear-gradient(top,  rgba(242,162,39,1) 0%, rgba(255,171,94,1) 51%, rgba(255,171,94,1) 51%, rgba(170,106,15,1) 52%, rgba(177,118,30,1) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  rgba(242,162,39,1) 0%,rgba(255,171,94,1) 51%,rgba(255,171,94,1) 51%,rgba(170,106,15,1) 52%,rgba(177,118,30,1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  rgba(242,162,39,1) 0%,rgba(255,171,94,1) 51%,rgba(255,171,94,1) 51%,rgba(170,106,15,1) 52%,rgba(177,118,30,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2a227', endColorstr='#b1761e',GradientType=0 ); /* IE6-9 */
 
 }
 #menu li {
+  width: 50%;
+  float: left;
   list-style: none;
   text-align: center;
 }
+#menu li:nth-of-type(even) {
+  float: right;
+}
 #menu ul {
+  /* display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap; */
+  height: 98%;
+  width: 100%;
+  overflow-y: scroll;
   padding: 0;
 }
 #menu img {
   display: block;
   margin: 0 auto;
-  width: 50%;
+  width: 60%;
 }
 #menubutton {
   position: fixed;
   font-size: 1.5em;
-  background-color: white;
+  background-color: transparent;
+  border: none;
   font-weight: bold;
-  top: 0;
-  left: 0;
+  bottom: 0;
+  right: 0;
   z-index: 9;
 }
+#menubutton img {
+  width: 6rem;
+}
 #closemenubutton {
-  position: absolute;
-  right: 0;
-  padding: 1rem;
+  position: fixed;
+  left: 0;
+  height: 10%;
+  bottom: 0;
+  width: 70%;
+  border-radius: 1rem;
+  /* padding: 1rem; */
   font-weight: bold;
-  background-color: white;
+  background-color: rgba(0, 255, 218, 0.70);
 }
 #catchbutton {
-  padding: 1rem;
+  /* padding: 0.5rem; */
+  height: 10%;
   left: 50%;
-  background-color: rgba(58, 243, 0, 0.48);
+  width: 5em;
+  background-color: rgba(0, 255, 218, 0.70);
   font-weight: bold;
   color: rgba(255, 255, 255, 0.9);
   font-size: 3em;
-  margin-left: -2.5rem;
+  margin-left: -2.5em;
   position: fixed;
   bottom: 0;
   z-index: 9;
+  border-radius: 1rem;
+  -webkit-transition: background-color 1s; /* Safari prior 6.1 */
+  transition:  background-color 1s;
+}
+#catchbutton img {
+  /* width: 4rem; */
+  height: 90%;
+  padding-top: 0.3rem;
 }
 #catchbutton:not(.nonactive) {
   -webkit-animation-name: activebutton; /* Safari 4.0 - 8.0 */
@@ -83,20 +129,177 @@ a {
 
 }
 @-webkit-keyframes activebutton {
-  0% {padding: 1rem;}
-  50% {padding: 1.5rem;}
-  100% {padding: 1rem;}
+  0% {padding: 0rem;}
+  50% {padding: 1rem;}
+  100% {padding: 0rem;}
 }
 
 /* Standard syntax */
 @keyframes activebutton {
-  0% {padding: 1rem;}
-  50% {padding: 1.5rem;}
-  100% {padding: 1rem;}
+  0% {padding: 0rem;}
+  50% {padding: 1rem;}
+  100% {padding: 0rem;}
 }
 #menu img.hidden {
   display: none;
 }
+/* ///////////////////////////////////////////// */
+/* startmenu */
+/* ///////////////////////////////////////////// */
+
+#startmenu header {
+  position: absolute;
+  width: 90%;
+  height: 80%;
+  top: 1rem;
+  z-index: 9;
+  left: 5%;
+  border-radius: 1rem;
+  background-color: #18dac8;
+}
+#startmenu h1 {
+  font-size: 3em;
+  text-align: center;
+}
+#startmenu ul {
+  margin: 0;
+  padding: 0;
+}
+#startmenu  li {
+  list-style-type: none;
+}
+#startmenu a {
+  text-align: center;
+  display: block;
+  color: black;
+  font-size: 2em;
+  text-decoration: none;
+  background-color: rgb(228, 255, 0);
+  /* padding: 1rem; */
+  border-radius: 1rem;
+  width: 85%;
+  margin-left: 7.5%;
+}
+#startmenu li em {
+  display: block;
+  padding: 1rem;
+}
+
+@media screen and (min-width: 500px) {
+  #startmenu header {
+    width: 80%;
+    left: 10%;
+  }
+}
+@media screen and (min-width: 1000px) {
+  #startmenu header {
+    width: 50%;
+    left: 25%;
+  }
+}
+
+/* ///////////////////////////////////////////// */
+/* whackamole */
+/* ///////////////////////////////////////////// */
+#molepause {
+  position: fixed;
+  right: 0;
+}
+#molecontainer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 90%;
+}
+#molecontainer .mole {
+  position: absolute;
+  width: 28%;
+  min-height: 2rem;
+}
+#molecontainer .mole:nth-of-type(-n+3) {
+  top: 10%;
+}
+#molecontainer .mole:nth-of-type(n+4) {
+  top: 50%;
+}
+#molecontainer .mole:nth-of-type(1),#molecontainer .mole:nth-of-type(4) {
+  left: 5%;
+}
+#molecontainer .mole:nth-of-type(2),#molecontainer .mole:nth-of-type(5) {
+  left: 36%;
+}
+#molecontainer .mole:nth-of-type(3),#molecontainer .mole:nth-of-type(6) {
+  right: 5%;
+}
+.moleactive {
+  background-color: red;
+}
+/* ///////////////////////////////////////////// */
+/* dance */
+/* ///////////////////////////////////////////// */
+#dancepause {
+  position: fixed;
+  right: 0;
+}
+#dancecontainer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 90%;
+}
+#dancebuttonscontainer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+
+}
+#danceinstructor {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  border-bottom: #2b1c1c solid 1px;
+  border-top: #2b1c1c solid 1px;
+
+}
+#danceinstructor .movedone {
+  color: grey;
+}
+#dancecontainer .dancebuttons {
+  /* position: absolute; */
+  display: inline-block;
+  background-color: rgba(255, 78, 90, 0.5);
+  width: 40%;
+  min-height: 3rem;
+  margin-left: 5%;
+  margin-bottom: 2%;
+  box-shadow: 3px 3px 3px 0px black;
+}
+#dancecontainer .dancebuttons:nth-of-type(-n+2) {
+  /* bottom: 10%; */
+}
+#dancecontainer .dancebuttons:nth-of-type(n+3) {
+  /* bottom: 30%; */
+}
+#dancecontainer .dancebuttons:nth-of-type(1),#dancecontainer .dancebuttons:nth-of-type(3) {
+  background-color: rgba(78, 255, 247, 0.5);
+  /* left: 5%; */
+}
+#dancecontainer .dancebuttons:nth-of-type(3) {
+  background-color:rgba(157, 0, 255, 0.5);
+
+}
+#dancecontainer .dancebuttons:nth-of-type(4) {
+  background-color: rgba(115, 255, 0, 0.5);
+}
+#dancecontainer .dancebuttons:nth-of-type(2),#dancecontainer .dancebuttons:nth-of-type(4) {
+  /* right: 5%; */
+}
+#currentdancemove {
+  color: red;
+}
+/* ///////////////////////////////////////////// */
+/* global */
+/* ///////////////////////////////////////////// */
 .hidden {
   display: none;
 }

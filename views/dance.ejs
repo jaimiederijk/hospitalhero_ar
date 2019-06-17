@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+
+  <!-- <script src="https://aframe.io/releases/0.9.1/aframe.min.js"></script> -->
+  <!-- <script src="/javascripts/aframe-ar.min.js"></script> -->
+  <body>
+    <button type="button" name="menu" id="menubutton">Menu</button>
+    <section id="menu">
+
+      <ul>
+        <li>
+          <img class="shadowimg" src="/images/shadowaarvark.png" alt="aardvark">
+          <img class="animalimg" id="aardvarkimg" src="/images/aardvark.png" alt="aardvark">
+          <h2>Aardvark</h2>
+        </li>
+        <li>
+          <img class="animalimg" src="/images/dodo.png" alt="dodo">
+          <h2>Dodo</h2>
+        </li>
+      </ul>
+      <button type="button" id="closemenubutton" name="button">Sluit</button>
+    </section>
+    <button type="button" name="button" id="dancepause">Pause</button>
+    <section id="dancecontainer">
+
+      <h3>Points <em id=dancepoints>0</em></h3>
+
+      <div id="dancebuttonscontainer">
+        <div id="danceinstructor">
+          <em></em>
+          <em></em>
+          <em></em>
+          <em></em>
+          <em id="currentdancemove"></em>
+          <em class="movedone"></em>
+          <em class="movedone"></em>
+          <em class="movedone"></em>
+          <em class="movedone"></em>
+        </div>
+        <button type="button" name="button" class="dancebuttons">A</button>
+        <button type="button" name="button" class="dancebuttons">B</button>
+        <button type="button" name="button" class="dancebuttons">C</button>
+        <button type="button" name="button" class="dancebuttons">D</button>
+      </div>
+
+    </section>
+  </body>
+  <script src="/javascripts/menu.js" type="text/javascript"></script>
+  <script src="/javascripts/dance.js" type="text/javascript"></script>
+</html>
