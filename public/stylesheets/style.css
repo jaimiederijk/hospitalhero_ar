@@ -98,7 +98,7 @@ a {
   width: 5em;
   background-color: rgba(0, 255, 218, 0.70);
   font-weight: bold;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.9);
   font-size: 3em;
   margin-left: -2.5em;
   position: fixed;
@@ -125,6 +125,7 @@ a {
 }
 #catchbutton.nonactive {
   background-color: rgba(122, 122, 122, 0.5);
+  color: rgba(255, 255, 255, 0.5);
 
 }
 @-webkit-keyframes activebutton {
