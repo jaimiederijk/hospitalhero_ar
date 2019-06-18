@@ -21,7 +21,7 @@ var setup = () => {
       }
     })
   }
-  startGame();
+   startGame();
 }
 
 var startGame = () => {
@@ -33,16 +33,18 @@ var startGame = () => {
     if (danceState.danceInstructions.length>9) {
       danceState.danceInstructions.pop();
     }
-
-      danceHtmlElements.danceInstructor[0].innerHTML = danceState.danceInstructions[0];
-      danceHtmlElements.danceInstructor[1].innerHTML = danceState.danceInstructions[1];
-      danceHtmlElements.danceInstructor[2].innerHTML = danceState.danceInstructions[2];
-      danceHtmlElements.danceInstructor[3].innerHTML = danceState.danceInstructions[3];
-      danceHtmlElements.danceInstructor[4].innerHTML = danceState.danceInstructions[4];
-      danceHtmlElements.danceInstructor[5].innerHTML = danceState.danceInstructions[5];
-      danceHtmlElements.danceInstructor[6].innerHTML = danceState.danceInstructions[6];
-      danceHtmlElements.danceInstructor[7].innerHTML = danceState.danceInstructions[7];
-      danceHtmlElements.danceInstructor[8].innerHTML = danceState.danceInstructions[8];
+    var updatedEmList = document.querySelectorAll("#danceinstructor em");
+    updatedEmList[0].parentNode.removeChild(updatedEmList[0]);
+      //
+      // danceHtmlElements.danceInstructor[0].innerHTML = danceState.danceInstructions[0];
+      // danceHtmlElements.danceInstructor[1].innerHTML = danceState.danceInstructions[1];
+      // danceHtmlElements.danceInstructor[2].innerHTML = danceState.danceInstructions[2];
+      // danceHtmlElements.danceInstructor[3].innerHTML = danceState.danceInstructions[3];
+      // danceHtmlElements.danceInstructor[4].innerHTML = danceState.danceInstructions[4];
+      // danceHtmlElements.danceInstructor[5].innerHTML = danceState.danceInstructions[5];
+      // danceHtmlElements.danceInstructor[6].innerHTML = danceState.danceInstructions[6];
+      // danceHtmlElements.danceInstructor[7].innerHTML = danceState.danceInstructions[7];
+      // danceHtmlElements.danceInstructor[8].innerHTML = danceState.danceInstructions[8];
     // danceHtmlElements.danceInstructor.innerHTML = danceState.danceInstructions;
 
     danceState.currentDanceMove = danceState.danceInstructions[4];
