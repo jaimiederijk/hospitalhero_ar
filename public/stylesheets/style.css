@@ -266,12 +266,16 @@ a {
   color: grey;
 }
 #danceinstructor em {
-  transition: 10s;
+  transition: 2s;
+  transition-timing-function: linear;
   position: absolute;
   display: block;
   background-color: red;
   width: 11.1%;
 
+}
+#danceinstructor em:nth-of-type(1) {
+  left: 0%;
 }
 #danceinstructor em:nth-of-type(2) {
   left: 11.1%;
