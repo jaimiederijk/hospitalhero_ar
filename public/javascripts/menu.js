@@ -12,6 +12,8 @@ var htmlElements = {
   bMarker : document.querySelector('#bmarker'),
   cMarker : document.querySelector('#cmarker'),
   dMarker : document.querySelector('#dmarker'),
+  winCatching : document.querySelector('#wincatching'),
+  catchCounter : document.querySelector('#menubutton em'),
 };
 
 var menuButton = document.querySelector('#menubutton');
@@ -24,7 +26,7 @@ var menu = document.querySelector('#menu');
 var aScene = document.querySelector('a-scene');
 
 var app = {
-
+  howManyCatched:0
 }
 // array of figures that can be captured
 var figures = [
@@ -183,7 +185,12 @@ var addListeners = () => {
           // set catched to true
           // add figure to bag
           createFiguresList();
-
+          app.howManyCatched += 1;
+          htmlElements.catchCounter.innerHTML = app.howManyCatched;
+          if (app.howManyCatched == 6) {
+            //// Win
+            htmlElements.winCatching.classList.remove("hidden");
+          }
           // remove 3d figure because catched
           htmlElements[markers[i].name].innerHTML = "";
           console.log("catch figure");
