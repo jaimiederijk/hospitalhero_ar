@@ -8,7 +8,10 @@ var htmlElements = {
   menu : document.querySelector('#menu'),
   aScene : document.querySelector('a-scene'),
   ul : document.querySelector('#menu ul'),
+  aMarker : document.querySelector('#amarker'),
   bMarker : document.querySelector('#bmarker'),
+  cMarker : document.querySelector('#cmarker'),
+  dMarker : document.querySelector('#dmarker'),
 };
 
 var menuButton = document.querySelector('#menubutton');
@@ -35,7 +38,6 @@ var figures = [
       obj-model="obj: url(/images/mybox/tinker.obj);
       mtl: url(/images/mybox/obj.mtl)">
     </a-entity>`,
-    visableAtMarker:false,
     catched:false,
   },{
     name:"Gele Aardvark",
@@ -47,7 +49,6 @@ var figures = [
       obj-model="obj: url(/images/aardvark_yellow/tinker.obj);
       mtl: url(/images/aardvark_yellow/obj.mtl)">
     </a-entity>`,
-    visableAtMarker:false,
     catched:false,
   },{
     name:"Groene Aardvark",
@@ -59,7 +60,39 @@ var figures = [
       obj-model="obj: url(/images/aardvark_green/tinker.obj);
       mtl: url(/images/aardvark_green/obj.mtl)">
     </a-entity>`,
-    visableAtMarker:false,
+    catched:false,
+  },{
+    name:"Blauwe Aardvark",
+    img:"/images/aardvarkblue.png",
+    aentity:`<a-entity
+      scale="0.02 0.02 0.02"
+      rotation="0 180 -150"
+      position="0 0 1"
+      obj-model="obj: url(/images/aardvark_blue/tinker.obj);
+      mtl: url(/images/aardvark_blue/obj.mtl)">
+    </a-entity>`,
+    catched:false,
+  },{
+    name:"Paarse Aardvark",
+    img:"/images/aardvarkpurple.png",
+    aentity:`<a-entity
+      scale="0.02 0.02 0.02"
+      rotation="0 180 -150"
+      position="0 0 1"
+      obj-model="obj: url(/images/aardvark_purple/tinker.obj);
+      mtl: url(/images/aardvark_purple/obj.mtl)">
+    </a-entity>`,
+    catched:false,
+  },{
+    name:"Bruine Aardvark",
+    img:"/images/aardvarkbrown.png",
+    aentity:`<a-entity
+      scale="0.02 0.02 0.02"
+      rotation="0 180 -150"
+      position="0 0 1"
+      obj-model="obj: url(/images/aardvark_brown/tinker.obj);
+      mtl: url(/images/aardvark_brown/obj.mtl)">
+    </a-entity>`,
     catched:false,
   },
   // {
@@ -72,7 +105,6 @@ var figures = [
   //     obj-model="obj: url(/images/mybox/tinker.obj);
   //     mtl: url(/images/mybox/obj.mtl)">
   //   </a-entity>`,
-  //   visableAtMarker:false,
   //   catched:false,
   // }
 ]
@@ -85,7 +117,26 @@ var markers = [
     pointingAtMarker:false,
   },
   {
+    name:"aMarker",
+    figureAtMarker:false,
+    whichFigure:false,
+    pointingAtMarker:false,
+  },
+  {
     name:"bMarker",
+    figureAtMarker:false,
+    whichFigure:false,
+    pointingAtMarker:false,
+  },
+  {
+    name:"cMarker",
+    figureAtMarker:false,
+    whichFigure:false,
+    pointingAtMarker:false,
+  }
+  ,
+  {
+    name:"dMarker",
     figureAtMarker:false,
     whichFigure:false,
     pointingAtMarker:false,
@@ -140,12 +191,6 @@ var addListeners = () => {
         }
       }
 
-      // for (var i = 0; i < shadowImages.length; i++) {
-      //   shadowImages[i].classList.add("hidden");
-      // }
-      // aardVarkImg.classList.remove("hidden");
-      // aScene.classList.add("tiny");
-      // catchButton.classList.add("nonactive");
     })
   }
   // if marker is in the frame
@@ -156,7 +201,7 @@ var addListeners = () => {
       //marker in frame
       htmlElements[markers[t].name].addEventListener("markerFound", (e)=>{
         markers[e.currentTarget.markerIndex].pointingAtMarker = true;
-
+        console.log("which marker found:" + e.currentTarget.markerIndex);
         // if there is a figure at the currenmarker
         if (markers[e.currentTarget.markerIndex].figureAtMarker) {
 
@@ -181,14 +226,21 @@ var moveFigures = () => {
   var randomlyMoveAround = (figureIndex) => {
     setTimeout((e) => {
       var foundEmptyMarker = false;
+      //shuffle order of markers
+      var shuffledArray = [];
+      for (var q = 0; q < markers.length; q++) {
+        shuffledArray.push(q)
+      }
+      shuffledArray.sort(() => 0.5 - Math.random())
+
       // if no figure call figure
       for (var u = 0; u < markers.length; u++) {
         // find empty marker
-        if (!markers[u].figureAtMarker) {
-          markers[u].figureAtMarker = true;
+        if (!markers[shuffledArray[u]].figureAtMarker) {
+
           foundEmptyMarker = true;
-          figureStay(figureIndex, u);
-          console.log("figuresstay "+ figureIndex+ " called on:" + markers[u].name);
+          figureStay(figureIndex, shuffledArray[u]);
+          console.log("figuresstay "+ figureIndex+ " called on:" + markers[shuffledArray[u]].name);
           break;
         }
       }
@@ -205,7 +257,7 @@ var moveFigures = () => {
     // if figure has not been catched
     if (!figures[figureIndex].catched) {
       htmlElements[markers[markerIndex].name].innerHTML = figures[figureIndex].aentity;
-
+      markers[markerIndex].figureAtMarker = true;
       markers[markerIndex].whichFigure = figureIndex;
       if (markers[markerIndex].pointingAtMarker) {
         catchButton.classList.remove("nonactive");
@@ -227,17 +279,17 @@ var moveFigures = () => {
         if (!otherMarkersWithFigures) {
           catchButton.classList.add("nonactive");
         }
-        
+
         console.log("try move again after apearence"+ figureIndex);
         randomlyMoveAround(figureIndex);
       }, 5000)
     }
 
   }
-
-  randomlyMoveAround(0);
-  randomlyMoveAround(1);
-  randomlyMoveAround(2);
+  //start all loops
+  for (var k = 0; k < figures.length; k++) {
+    randomlyMoveAround(k);
+  }
 }
 
 var onStartSetup = () => {
