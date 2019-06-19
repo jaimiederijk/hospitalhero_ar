@@ -203,6 +203,9 @@ a {
   border-radius: 1rem;
   background-color: #18dac8;
 }
+#startmenu img {
+  width: 100%;
+}
 #startmenu h1 {
   font-size: 3em;
   text-align: center;
@@ -296,15 +299,16 @@ a {
 #dancecontainer #avatar {
   position: absolute;
   width: 50%;
+  max-height: 80%;
   left: 25%;
   bottom: 20%;
   z-index: 10;
   -webkit-animation-name: dance; /* Safari 4.0 - 8.0 */
-  -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 1.5s; /* Safari 4.0 - 8.0 */
   -webkit-animation-iteration-count: infinite; /* Safari 4.0 - 8.0 */
   -webkit-animation-timing-function: ease-in-out;
   animation-name: dance;
-  animation-duration: 2s;
+  animation-duration: 1.5s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
 }
@@ -342,7 +346,7 @@ a {
   color: grey;
 }
 #danceinstructor em {
-  transition: left 2s;
+  transition: left 1.5s;
   transition-timing-function: linear;
   position: absolute;
   display: block;
@@ -404,29 +408,33 @@ a {
   /* bottom: 30%; */
 }
 #dancecontainer .dancebuttons:nth-of-type(1), #danceinstructor .colorA {
-  background-color: rgba(78, 255, 247, 0.5);
+  /* red */
+  background-color: rgba(255,0,0, 0.5);
   /* left: 5%; */
 }
 #dancecontainer .dancebuttons:nth-of-type(2), #danceinstructor .colorB {
-  background-color:rgba(157, 0, 255, 0.5);
+  /* blue */
+  background-color:rgba(59,22,226, 0.5);
 
 }
 #dancecontainer .dancebuttons:nth-of-type(3), #danceinstructor .colorC {
-  background-color: rgba(35, 255, 0, 0.5);
+  background-color: rgba(91,243,0, 0.5);
 }
 #dancecontainer .dancebuttons:nth-of-type(4), #danceinstructor .colorD {
-  background-color: rgba(0, 16, 254, 0.5);
+  background-color: rgba(255,182,0, 0.5);
 }
 #dancecontainer .dancebuttons:nth-of-type(2),#dancecontainer .dancebuttons:nth-of-type(4) {
   /* right: 5%; */
 }
 #danceinstructor em.currentdancemove {
   color: red;
-  border: solid black inset;
+  border-top: solid 3px black;
+  border-bottom: solid 3px black;
 }
 #danceinstructor em.gothim {
   color: green;
-  border: solid green;
+  background-color: green;
+  /* border: solid green; */
 }
 /* ///////////////////////////////////////////// */
 /* global */

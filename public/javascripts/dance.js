@@ -6,6 +6,7 @@ var danceHtmlElements = {
 }
 var danceState = {
   points: 0,
+  speed:1500,
   startStop: false,
   danceMoves: ["A","B","C","D"],
   danceInstructions:["A","D","D","B","B","D","D","B","B","D","A"],
@@ -13,6 +14,11 @@ var danceState = {
 
 }
 var setup = () => {
+  // document.querySelector("#avatar").style["animation-duration"] = danceState.speed/1000 +"s";
+  // for (var s = 0; s < danceHtmlElements.length; s++) {
+  //   danceHtmlElements.danceInstructor[s].style.transition = "left " + danceState.speed/1000 + "s";
+  // }
+
   for (var i = 0; i < danceHtmlElements.danceButtons.length; i++) {
     danceHtmlElements.danceButtons[i].addEventListener("click",(e)=>{
       //debugger
@@ -53,6 +59,7 @@ var startGame = () => {
     newDanceEm.appendChild(textnode);
     newDanceEm.classList.add("color"+newDanceMove);
     newDanceEm.innerHTML = newDanceEm.innerHTML + `<img src="images/lamp.svg" alt="lamp">`;
+    // newDanceEm.style.transition = "left " + danceState.speed/1000 + "s";
     updatedEmList[4].parentNode.appendChild(newDanceEm);
     //add active class to currentmove
     updatedEmList[5].classList.add("currentdancemove");
@@ -61,7 +68,7 @@ var startGame = () => {
     //console.log(danceState.danceInstructions[4]);
     // debugger
     danceState.currentDanceMove = danceState.danceInstructions[4];
-  },2000);
+  },danceState.speed);
   danceHtmlElements.pause.addEventListener("click",(e)=>{
     if (e.currentTarget.classList.contains("paused")) {
       danceInterval = setInterval( (e)=>{
