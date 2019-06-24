@@ -3,13 +3,14 @@ var danceHtmlElements = {
   danceButtons : document.querySelectorAll('.dancebuttons'),
   danceInstructor : document.querySelectorAll("#danceinstructor em"),
   pause : document.querySelector('#dancepause'),
+  danceLight : document.querySelector('#dancelights'),
 }
 var danceState = {
   points: 0,
   speed:1500,
   startStop: false,
   danceMoves: ["A","B","C","D"],
-  danceInstructions:["A","D","D","B","B","D","D","B","B","D","A"],
+  danceInstructions:["A","D","D","B","B","D","D"],
   currentDanceMove: "B"
 
 }
@@ -20,14 +21,17 @@ var setup = () => {
   // }
 
   for (var i = 0; i < danceHtmlElements.danceButtons.length; i++) {
+    console.log("add event");
     danceHtmlElements.danceButtons[i].addEventListener("click",(e)=>{
-      //debugger
+      console.log("click");
     //  console.log(danceState.currentDanceMove + "  " + danceState.danceInstructions);
       if (e.currentTarget.innerHTML == danceState.currentDanceMove) {
         var currentDanceMove = document.querySelector(".currentdancemove");
+
         if (!currentDanceMove.classList.contains("gothim")) {
+          console.log("add point");
           currentDanceMove.classList.add("gothim");
-          danceState.points = danceState.points + 1;
+
           updatePoints();
         } else {// wrong button
 
@@ -39,6 +43,19 @@ var setup = () => {
 }
 
 var startGame = () => {
+  var removeAndAddLamps = (nr) => {
+    var updatedLampList = document.querySelectorAll("#dancelights .lamp");
+
+    updatedLampList[0].parentNode.removeChild(updatedLampList[0]);
+
+    var newLamp = document.createElement("div");
+    newLamp.innerHTML = `<img src="images/lamp.svg" alt="lamp">
+      <div class="beamoflight"></div>`;
+    newLamp.classList.add("lamp");
+    newLamp.classList.add("color" + danceState.danceMoves[nr])
+    // debugger
+    updatedLampList[2].parentNode.appendChild(newLamp);
+  }
   var danceInterval = setInterval( (e)=>{
     //select next move
     var nr = Math.floor(Math.random() * 4);
@@ -46,9 +63,9 @@ var startGame = () => {
     //add newmove
     danceState.danceInstructions.push(newDanceMove);
     // if longer remove oldest
-    if (danceState.danceInstructions.length>11) {
+    //if (danceState.danceInstructions.length>7) {
       danceState.danceInstructions.shift();
-    }
+    //}
     // remove oldest from dom
     var updatedEmList = document.querySelectorAll("#danceinstructor em");
     updatedEmList[0].parentNode.removeChild(updatedEmList[0]);
@@ -58,34 +75,47 @@ var startGame = () => {
 
     newDanceEm.appendChild(textnode);
     newDanceEm.classList.add("color"+newDanceMove);
-    newDanceEm.innerHTML = newDanceEm.innerHTML + `<img src="images/lamp.svg" alt="lamp">`;
+    newDanceEm.innerHTML = newDanceEm.innerHTML ;//+ `<img src="images/lamp.svg" alt="lamp">`
     // newDanceEm.style.transition = "left " + danceState.speed/1000 + "s";
-    updatedEmList[4].parentNode.appendChild(newDanceEm);
+    updatedEmList[3].parentNode.appendChild(newDanceEm);
     //add active class to currentmove
-    updatedEmList[5].classList.add("currentdancemove");
-    updatedEmList[4].classList.remove("currentdancemove");
-    updatedEmList[4].classList.add("movedone");
+    updatedEmList[4].classList.add("currentdancemove");
+    updatedEmList[3].classList.remove("currentdancemove");
+    updatedEmList[3].classList.add("movedone");
     //console.log(danceState.danceInstructions[4]);
     // debugger
-    danceState.currentDanceMove = danceState.danceInstructions[4];
+    danceState.currentDanceMove = danceState.danceInstructions[3];
+    removeAndAddLamps(nr);
   },danceState.speed);
-  danceHtmlElements.pause.addEventListener("click",(e)=>{
-    if (e.currentTarget.classList.contains("paused")) {
-      danceInterval = setInterval( (e)=>{
-        var nr = Math.floor(Math.random() * 6);
-        danceHtmlElements.danceInstructor.innerHTML = danceState.danceMoves[nr];
-        danceState.currentDanceMove = danceState.danceMoves[nr];
-      },1000);
-      e.currentTarget.classList.remove("paused");
-    } else {
-      clearInterval(danceInterval);
-      e.currentTarget.classList.add("paused");
-    }
-  })
+  // danceHtmlElements.pause.addEventListener("click",(e)=>{
+  //   if (e.currentTarget.classList.contains("paused")) {
+  //     danceInterval = setInterval( (e)=>{
+  //       var nr = Math.floor(Math.random() * 6);
+  //       danceHtmlElements.danceInstructor.innerHTML = danceState.danceMoves[nr];
+  //       danceState.currentDanceMove = danceState.danceMoves[nr];
+  //     },1000);
+  //     e.currentTarget.classList.remove("paused");
+  //   } else {
+  //     clearInterval(danceInterval);
+  //     e.currentTarget.classList.add("paused");
+  //   }
+  // })
 }
 var updatePoints = () => {
   if (danceHtmlElements.points) {
+    danceState.points = danceState.points + 1;
     danceHtmlElements.points.innerHTML = danceState.points;
+    // setTimeout(()=>{
+    //   void danceHtmlElements.points.parentNode.offsetWidth;
+    //   danceHtmlElements.points.parentNode.classList.add("eatdance");
+    //   setTimeout(()=>{
+    //     void danceHtmlElements.points.parentNode.offsetWidth;
+    //     danceHtmlElements.points.parentNode.classList.remove("eatdance");
+    //   },1500)
+    //
+    //
+    // },4500)
+
   }
 }
 

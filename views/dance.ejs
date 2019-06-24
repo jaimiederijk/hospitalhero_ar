@@ -3,6 +3,7 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
   </head>
 
   <!-- <script src="https://aframe.io/releases/0.9.1/aframe.min.js"></script> -->
@@ -24,40 +25,56 @@
       </ul>
       <button type="button" id="closemenubutton" name="button">Sluit</button>
     </section> -->
-    <button type="button" name="button" id="dancepause" class="hidden">Pause</button>
-    <h3>Points <em id=dancepoints>0</em></h3>
+
     <section id="dancecontainer">
-      <!-- <div id="dancelightscontainer">
+      <button type="button" name="button" id="dancepause" class="hidden">Pause</button>
+
+      <div id="dancelightscontainer">
+        <img id="avatar" src="images/avatar.svg" alt="">
+        <img id="aardvarkdodo" src="images/object-aardvark.png" alt="">
         <div id="dancelights">
-          <div class="movedone colorA">A</div>
-          <div class="movedone colorD">D</div>
-          <div class="movedone colorD">D</div>
-          <div class="movedone colorB">B</div>
-          <div class="movedone colorB currentdancemove">B</div>
-          <div class="movedone colorD">D</div>
-          <div class="movedone colorD">D</div>
-          <div class="movedone colorB">B</div>
-          <div class="movedone colorB">B</div>
-          <div class="movedone colorD">D</div>
-          <div class="movedone colorA">A</div>
+          <div class="lamp colorA"><img src="images/lamp.svg" alt="lamp">
+            <div class="beamoflight">
+
+            </div>
+          </div>
+          <div class="lamp colorB"><img src="images/lamp.svg" alt="lamp">
+            <div class="beamoflight">
+
+            </div>
+          </div>
+          <div class="lamp colorB"><img src="images/lamp.svg" alt="lamp">
+            <div class="beamoflight">
+
+            </div>
+          </div>
+          <div class="lamp colorD"><img src="images/lamp.svg" alt="lamp">
+            <div class="beamoflight">
+
+            </div>
+          </div>
+          <div class="lamp colorB"><img src="images/lamp.svg" alt="lamp">
+            <div class="beamoflight">
+
+            </div>
+          </div>
+          
         </div>
-      </div> -->
-      <img id="avatar" src="images/avatar.svg" alt="">
-      <img id="aardvarkdodo" src="images/object-aardvark.png" alt="">
+      </div>
+
 
       <div id="dancebuttonscontainer">
+        <h3 class="eatdance"><em id=dancepoints>0</em></h3>
         <div id="danceinstructor">
-          <em class="movedone colorA">A<img src="images/lamp.svg" alt="lamp"></em>
-          <em class="movedone colorD">D<img src="images/lamp.svg" alt="lamp"></em>
-          <em class="movedone colorD">D<img src="images/lamp.svg" alt="lamp"></em>
-          <em class="movedone colorB">B<img src="images/lamp.svg" alt="lamp"></em>
-          <em class="movedone colorB currentdancemove">B<img src="images/lamp.svg" alt="lamp"></em>
-          <em class="movedone colorD">D<img src="images/lamp.svg" alt="lamp"></em>
-          <em class="movedone colorD">D<img src="images/lamp.svg" alt="lamp"></em>
-          <em class="movedone colorB">B<img src="images/lamp.svg" alt="lamp"></em>
-          <em class="movedone colorB">B<img src="images/lamp.svg" alt="lamp"></em>
-          <em class="movedone colorD">D<img src="images/lamp.svg" alt="lamp"></em>
-          <em class="movedone colorA">A<img src="images/lamp.svg" alt="lamp"></em>
+          <em class="movedone colorA">A</em>
+          <em class="movedone colorD">D</em>
+          <em class="movedone colorD">D</em>
+          <em class="movedone colorB">B</em>
+          <em class="movedone colorB currentdancemove">B</em>
+          <em class="movedone colorD">D</em>
+          <em class="movedone colorD">D</em>
+
+
         </div>
         <button type="button" name="button" class="dancebuttons">A</button>
         <button type="button" name="button" class="dancebuttons">B</button>
