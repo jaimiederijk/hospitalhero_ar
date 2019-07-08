@@ -37,7 +37,7 @@ var figures = [
     aentity:`<a-entity
       scale="0.02 0.02 0.02"
       rotation="0 180 -150"
-      position="0 0 1"
+      position="0 0 -1"
       obj-model="obj: url(/images/mybox/tinker.obj);
       mtl: url(/images/mybox/obj.mtl)">
     </a-entity>`,
@@ -48,7 +48,7 @@ var figures = [
     aentity:`<a-entity
       scale="0.02 0.02 0.02"
       rotation="0 180 -150"
-      position="0 0 1"
+      position="0 0 -1"
       obj-model="obj: url(/images/aardvark_yellow/tinker.obj);
       mtl: url(/images/aardvark_yellow/obj.mtl)">
     </a-entity>`,
@@ -59,7 +59,7 @@ var figures = [
     aentity:`<a-entity
       scale="0.02 0.02 0.02"
       rotation="0 180 -150"
-      position="0 0 1"
+      position="0 0 -1"
       obj-model="obj: url(/images/aardvark_green/tinker.obj);
       mtl: url(/images/aardvark_green/obj.mtl)">
     </a-entity>`,
@@ -70,7 +70,7 @@ var figures = [
     aentity:`<a-entity
       scale="0.02 0.02 0.02"
       rotation="0 180 -150"
-      position="0 0 1"
+      position="0 0 -1"
       obj-model="obj: url(/images/aardvark_blue/tinker.obj);
       mtl: url(/images/aardvark_blue/obj.mtl)">
     </a-entity>`,
@@ -81,7 +81,7 @@ var figures = [
     aentity:`<a-entity
       scale="0.02 0.02 0.02"
       rotation="0 180 -150"
-      position="0 0 1"
+      position="0 0 -1"
       obj-model="obj: url(/images/aardvark_purple/tinker.obj);
       mtl: url(/images/aardvark_purple/obj.mtl)">
     </a-entity>`,
@@ -92,7 +92,7 @@ var figures = [
     aentity:`<a-entity
       scale="0.02 0.02 0.02"
       rotation="0 180 -150"
-      position="0 0 1"
+      position="0 0 -1"
       obj-model="obj: url(/images/aardvark_brown/tinker.obj);
       mtl: url(/images/aardvark_brown/obj.mtl)">
     </a-entity>`,

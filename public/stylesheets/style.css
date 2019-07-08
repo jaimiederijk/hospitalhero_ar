@@ -28,6 +28,11 @@ body a-scene.tiny {
 a {
   color: #00B7FF;
 }
+
+button {
+  touch-action: manipulation;
+}
+
 #menu {
   position: fixed;
   width: 100%;
