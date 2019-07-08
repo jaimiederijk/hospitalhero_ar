@@ -34,6 +34,8 @@ var setup = () => {
           currentDanceMove.classList.add("gothim");
           var currentHighlight = document.querySelectorAll("#danceinstructorhighlight em");
           currentHighlight[1].classList.add("gothim");
+          var currentLamps = document.querySelectorAll(".lamp div");
+          currentLamps[2].classList.add("gothim");
           updatePoints();
         } else {// wrong button
 
@@ -45,16 +47,16 @@ var setup = () => {
 }
 
 var startGame = () => {
-  var removeAndAddLamps = (nr) => {
+  var removeAndAddLamps = (color) => {
     var updatedLampList = document.querySelectorAll("#dancelights .lamp");
 
-    updatedLampList[0].parentNode.removeChild(updatedLampList[0]);
+    updatedLampList[1].parentNode.removeChild(updatedLampList[0]);
 
     var newLamp = document.createElement("div");
     newLamp.innerHTML = `<img src="images/lamp.svg" alt="lamp">
       <div class="beamoflight"></div>`;
     newLamp.classList.add("lamp");
-    newLamp.classList.add("color" + danceState.danceMoves[nr])
+    newLamp.classList.add("color" + color)
     // debugger
     updatedLampList[2].parentNode.appendChild(newLamp);
   }
@@ -63,6 +65,7 @@ var startGame = () => {
     var clonedEm = newem.cloneNode(false);
     updateddanceInstructorHighlightEm[1].parentNode.removeChild(updateddanceInstructorHighlightEm[0])
     updateddanceInstructorHighlightEm[1].parentNode.appendChild(clonedEm);
+
   }
   var danceInterval = setInterval( (e)=>{
     //select next move
@@ -93,7 +96,7 @@ var startGame = () => {
     //console.log(danceState.danceInstructions[4]);
     // debugger
     danceState.currentDanceMove = danceState.danceInstructions[3];
-    removeAndAddLamps(nr);
+    removeAndAddLamps(danceState.danceInstructions[5]);
     addDanceHighlight(updatedEmList[5])
   },danceState.speed);
 
