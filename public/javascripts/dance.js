@@ -4,6 +4,7 @@ var danceHtmlElements = {
   danceInstructor : document.querySelectorAll("#danceinstructor em"),
   pause : document.querySelector('#dancepause'),
   danceLight : document.querySelector('#dancelights'),
+  danceInstructorHighlight : document.querySelector('#danceinstructorhighlight')
 }
 var danceState = {
   points: 0,
@@ -31,7 +32,8 @@ var setup = () => {
         if (!currentDanceMove.classList.contains("gothim")) {
           console.log("add point");
           currentDanceMove.classList.add("gothim");
-
+          var currentHighlight = document.querySelectorAll("#danceinstructorhighlight em");
+          currentHighlight[1].classList.add("gothim");
           updatePoints();
         } else {// wrong button
 
@@ -55,6 +57,12 @@ var startGame = () => {
     newLamp.classList.add("color" + danceState.danceMoves[nr])
     // debugger
     updatedLampList[2].parentNode.appendChild(newLamp);
+  }
+  var addDanceHighlight = (newem) =>{
+    updateddanceInstructorHighlightEm = document.querySelectorAll("#danceinstructorhighlight em");
+    var clonedEm = newem.cloneNode(false);
+    updateddanceInstructorHighlightEm[1].parentNode.removeChild(updateddanceInstructorHighlightEm[0])
+    updateddanceInstructorHighlightEm[1].parentNode.appendChild(clonedEm);
   }
   var danceInterval = setInterval( (e)=>{
     //select next move
@@ -86,7 +94,9 @@ var startGame = () => {
     // debugger
     danceState.currentDanceMove = danceState.danceInstructions[3];
     removeAndAddLamps(nr);
+    addDanceHighlight(updatedEmList[5])
   },danceState.speed);
+
   // danceHtmlElements.pause.addEventListener("click",(e)=>{
   //   if (e.currentTarget.classList.contains("paused")) {
   //     danceInterval = setInterval( (e)=>{

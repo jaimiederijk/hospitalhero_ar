@@ -26,7 +26,8 @@ var menu = document.querySelector('#menu');
 var aScene = document.querySelector('a-scene');
 
 var app = {
-  howManyCatched:0
+  howManyCatched:0,
+  timeBetweenApearences:10000,
 }
 // array of figures that can be captured
 var figures = [
@@ -186,6 +187,7 @@ var addListeners = () => {
           // add figure to bag
           createFiguresList();
           app.howManyCatched += 1;
+          app.timeBetweenApearences -= 1900;
           htmlElements.catchCounter.innerHTML = app.howManyCatched;
           if (app.howManyCatched == 6) {
             //// Win
@@ -256,7 +258,7 @@ var moveFigures = () => {
         console.log("try move again "+ figureIndex);
         randomlyMoveAround(figureIndex);
       }
-    },Math.random() * 10000)
+    },Math.random() * app.timeBetweenApearences)
   }
 
   // function that sets a figure and then removes it
