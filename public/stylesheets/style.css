@@ -194,6 +194,20 @@ button {
     font-size: 1em;
   }
 }
+/* portret */
+@media screen and (min-width: 766px)
+  and (orientation: portrait) {
+  #catchbutton  {
+    height: 10rem;
+    width: 13%;
+    bottom:30%;
+    left: 85%;
+    right: 10px;
+  }
+  #catchbutton img {
+    width: 100%;
+  }
+}
 /* ///////////////////////////////////////////// */
 /* startmenu */
 /* ///////////////////////////////////////////// */
