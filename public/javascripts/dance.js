@@ -15,6 +15,15 @@ var danceState = {
   currentDanceMove: "B"
 
 }
+
+
+// setup adds click event to buttons
+// each click event triggers a check if currentbutton is the same as currentdance move checked by the letter
+// if true 
+
+
+
+
 var setup = () => {
   // document.querySelector("#avatar").style["animation-duration"] = danceState.speed/1000 +"s";
   // for (var s = 0; s < danceHtmlElements.length; s++) {

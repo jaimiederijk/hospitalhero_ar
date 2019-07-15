@@ -27,7 +27,8 @@ var aScene = document.querySelector('a-scene');
 
 var app = {
   howManyCatched:0,
-  timeBetweenApearences:10000,
+  timeBetweenApearences:5000,
+  howManyActive:6,
 }
 // array of figures that can be captured
 var figures = [
@@ -97,7 +98,63 @@ var figures = [
       mtl: url(/images/aardvark_brown/obj.mtl)">
     </a-entity>`,
     catched:false,
+  },{
+    name:"Oranje Aardvark",
+    img:"/images/aardvarkorange.png",
+    aentity:`<a-entity
+      scale="0.02 0.02 0.02"
+      rotation="0 180 -150"
+      position="0 0 -1"
+      obj-model="obj: url(/images/aardvark_orange/tinker.obj);
+      mtl: url(/images/aardvark_orange/obj.mtl)">
+    </a-entity>`,
+    catched:false,
+  },{
+    name:"Zwarte Aardvark",
+    img:"/images/aardvarkblack.png",
+    aentity:`<a-entity
+      scale="0.02 0.02 0.02"
+      rotation="0 180 -150"
+      position="0 0 -1"
+      obj-model="obj: url(/images/aardvark_black/tinker.obj);
+      mtl: url(/images/aardvark_black/obj.mtl)">
+    </a-entity>`,
+    catched:false,
+  },{
+    name:"Cyaan Aardvark",
+    img:"/images/aardvarkcyan.png",
+    aentity:`<a-entity
+      scale="0.02 0.02 0.02"
+      rotation="0 180 -150"
+      position="0 0 -1"
+      obj-model="obj: url(/images/aardvark_cyan/tinker.obj);
+      mtl: url(/images/aardvark_cyan/obj.mtl)">
+    </a-entity>`,
+    catched:false,
+  },{
+    name:"Roze Aardvark",
+    img:"/images/aardvarkpink.png",
+    aentity:`<a-entity
+      scale="0.02 0.02 0.02"
+      rotation="0 180 -150"
+      position="0 0 -1"
+      obj-model="obj: url(/images/aardvark_pink/tinker.obj);
+      mtl: url(/images/aardvark_pink/obj.mtl)">
+    </a-entity>`,
+    catched:false,
+  },{
+    name:"Witte Aardvark",
+    img:"/images/aardvarkwhite.png",
+    aentity:`<a-entity
+      scale="0.02 0.02 0.02"
+      rotation="0 180 -150"
+      position="0 0 -1"
+      obj-model="obj: url(/images/aardvark_white/tinker.obj);
+      mtl: url(/images/aardvark_white/obj.mtl)">
+    </a-entity>`,
+    catched:false,
   },
+
   // {
   //   name:"Dodo",
   //   img:"/images/dodo.png",
@@ -187,7 +244,8 @@ var addListeners = () => {
           // add figure to bag
           createFiguresList();
           app.howManyCatched += 1;
-          app.timeBetweenApearences -= 1900;
+          //app.timeBetweenApearences -= 1900;
+          moveFigures.checkForCatchedFigures();
           htmlElements.catchCounter.innerHTML = app.howManyCatched;
           if (app.howManyCatched == 6) {
             //// Win
@@ -230,9 +288,14 @@ var addListeners = () => {
 
   }
 }
+
 // randomly move figures around the different markers
-var moveFigures = () => {
-  var randomlyMoveAround = (figureIndex) => {
+var moveFigures = {
+  checkForCatchedFigures : () => {
+    var indexOfNewFigure = app.howManyCatched + app.howManyActive - 1;
+    moveFigures.randomlyMoveAround(indexOfNewFigure);
+  },
+  randomlyMoveAround : (figureIndex) => {
     setTimeout((e) => {
       var foundEmptyMarker = false;
       //shuffle order of markers
@@ -246,9 +309,8 @@ var moveFigures = () => {
       for (var u = 0; u < markers.length; u++) {
         // find empty marker
         if (!markers[shuffledArray[u]].figureAtMarker) {
-
           foundEmptyMarker = true;
-          figureStay(figureIndex, shuffledArray[u]);
+          moveFigures.figureStay(figureIndex, shuffledArray[u]);
           console.log("figuresstay "+ figureIndex+ " called on:" + markers[shuffledArray[u]].name);
           break;
         }
@@ -256,13 +318,13 @@ var moveFigures = () => {
       // did not find empty marker
       if (!foundEmptyMarker) {
         console.log("try move again "+ figureIndex);
-        randomlyMoveAround(figureIndex);
+        moveFigures.randomlyMoveAround(figureIndex);
       }
     },Math.random() * app.timeBetweenApearences)
-  }
+  },
 
   // function that sets a figure and then removes it
-  var figureStay = (figureIndex, markerIndex) => {
+  figureStay : (figureIndex, markerIndex) => {
     // if figure has not been catched
     if (!figures[figureIndex].catched) {
       htmlElements[markers[markerIndex].name].innerHTML = figures[figureIndex].aentity;
@@ -290,15 +352,12 @@ var moveFigures = () => {
         }
 
         console.log("try move again after apearence"+ figureIndex);
-        randomlyMoveAround(figureIndex);
+        moveFigures.randomlyMoveAround(figureIndex);
       }, 5000)
     }
 
   }
-  //start all loops
-  for (var k = 0; k < figures.length; k++) {
-    randomlyMoveAround(k);
-  }
+
 }
 
 var onStartSetup = () => {
@@ -311,7 +370,10 @@ var onStartSetup = () => {
     catchButton.classList.add("nonactive");
   }
   addListeners();
-  moveFigures();
+  //start all loops for 6 figures
+  for (var k = 0; k < app.howManyActive; k++) {
+    moveFigures.randomlyMoveAround(k);
+  }
   // hiroMarker.innerHTML = figures[0].aentity;
 };
 onStartSetup();
