@@ -1,4 +1,5 @@
 var htmlElements = {
+  body : document.querySelector('body'),
   menuButton : document.querySelector('#menubutton'),
   hiroMarker : document.querySelector('#hiromarker'),
   catchButton : document.querySelector('#catchbutton'),
@@ -29,6 +30,7 @@ var app = {
   howManyCatched:0,
   timeBetweenApearences:5000,
   howManyActive:6,
+  messageTime: 1500,
 }
 // array of figures that can be captured
 var figures = [
@@ -203,6 +205,30 @@ var markers = [
   }
 ]
 
+var messages = {
+  createMessage : (string) => {
+    var messageBox = document.createElement("div");
+    var p = document.createElement("p");
+
+    var text = document.createTextNode(string);
+    p.appendChild(text);
+    messageBox.classList.add("messagebox");
+    messageBox.appendChild(p);
+    var cloud = document.createElement("div");
+    cloud.innerHTML = `
+`;
+    messageBox.appendChild(cloud);
+    htmlElements.body.appendChild(messageBox);
+
+    setTimeout( (e)=> {
+      htmlElements.body.removeChild(messageBox);
+    },app.messageTime);
+  },
+
+}
+
+
+
 var createFiguresList = () => {
   var liString = "";
   for (var i = 0; i < figures.length; i++) {
@@ -244,6 +270,10 @@ var addListeners = () => {
           // add figure to bag
           createFiguresList();
           app.howManyCatched += 1;
+
+          // send message
+          messages.createMessage("Je hebt de "+ figures[markers[i].whichFigure].name + " gevangen");
+
           //app.timeBetweenApearences -= 1900;
           moveFigures.checkForCatchedFigures();
           htmlElements.catchCounter.innerHTML = app.howManyCatched;
