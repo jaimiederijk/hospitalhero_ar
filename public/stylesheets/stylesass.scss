@@ -1,0 +1,49 @@
+
+
+
+
+@font-face {
+    font-family: 'Chalkduster';
+    src:url('Chalkduster.ttf.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+}
+
+@import 'common/_colors';
+@import 'mainmenu';
+@import 'catchgame';
+@import 'dancegame';
+@import 'messagebox';
+
+
+
+body {
+
+  margin: 0px;
+  overflow: hidden;
+  /* padding: 0px; */
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Chalkduster';
+}
+body a-scene {
+  max-height: 100%;
+  max-width: 100%;
+  transition: max-height 0.50s ease-out, max-width 0.50s ease-out;
+
+}
+body a-scene.tiny {
+  max-height: 0;
+  max-width: 0;
+  transition: max-height 0.50s ease-in, max-width 0.50s ease-in;
+
+}
+a {
+  color: #00B7FF;
+}
+
+button {
+  touch-action: manipulation;
+}
+.hidden {
+  display: none;
+}

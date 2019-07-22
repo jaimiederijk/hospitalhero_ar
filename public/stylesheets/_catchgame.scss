@@ -1,0 +1,175 @@
+#menu {
+  position: fixed;
+  width: 100%;
+  height: 89%;
+  border-radius: 2rem;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  /* background-color: rgba(237, 157, 34, 1); */
+  background: rgb(242,162,39); /* Old browsers */
+  background: -moz-linear-gradient(top,  rgba(242,162,39,1) 0%, rgba(255,171,94,1) 51%, rgba(255,171,94,1) 51%, rgba(170,106,15,1) 52%, rgba(177,118,30,1) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  rgba(242,162,39,1) 0%,rgba(255,171,94,1) 51%,rgba(255,171,94,1) 51%,rgba(170,106,15,1) 52%,rgba(177,118,30,1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  rgba(242,162,39,1) 0%,rgba(255,171,94,1) 51%,rgba(255,171,94,1) 51%,rgba(170,106,15,1) 52%,rgba(177,118,30,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2a227', endColorstr='#b1761e',GradientType=0 ); /* IE6-9 */
+
+}
+#menu li {
+  width: 50%;
+  float: left;
+  list-style: none;
+  text-align: center;
+}
+#menu li:nth-of-type(even) {
+  float: right;
+}
+#menu ul {
+  /* display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap; */
+  height: 98%;
+  width: 100%;
+  overflow-y: scroll;
+  padding: 0;
+}
+#menu img {
+  display: block;
+  margin: 0 auto;
+  width: 60%;
+}
+#menubutton {
+  position: fixed;
+  font-size: 1.5em;
+  background-color: transparent;
+  border: none;
+  font-weight: bold;
+  bottom: 0;
+  right: 0;
+  z-index: 9;
+}
+#menubutton img {
+  width: 6rem;
+}
+#menubutton em {
+  position: absolute;
+  z-index: 10;
+  right: 3rem;
+  bottom: 2.3rem;
+}
+#closemenubutton {
+  position: fixed;
+  left: 0;
+  height: 10%;
+  bottom: 0;
+  width: 70%;
+  border-radius: 1rem;
+  /* padding: 1rem; */
+  font-weight: bold;
+  background-color: rgba(0, 255, 218, 0.70);
+}
+#catchbutton {
+  /* padding: 0.5rem; */
+  height: 10%;
+  left: 5%;
+  width: 5em;
+  background-color: rgba(0, 255, 218, 0.70);
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 3em;
+  /* margin-left: -2.5em; */
+  position: fixed;
+  bottom: 10px;
+  z-index: 9;
+  border-radius: 1rem;
+  -webkit-transition: background-color 1s; /* Safari prior 6.1 */
+  transition:  background-color 1s;
+  box-shadow: 3px 3px 3px 0px black;
+}
+#catchbutton img {
+  /* width: 4rem; */
+  height: 90%;
+  padding-top: 0.3rem;
+}
+#catchbutton:not(.nonactive) {
+  -webkit-animation-name: activebutton; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+  /* -webkit-animation-iteration-count: infinite; /* Safari 4.0 - 8.0 */
+  -webkit-animation-timing-function: ease-in-out;
+  animation-name: activebutton;
+  animation-duration: 1s;
+  /* animation-iteration-count: infinite; */
+  animation-timing-function: ease-in-out;
+}
+#catchbutton.nonactive {
+  background-color: rgba(122, 122, 122, 0.5);
+  color: rgba(255, 255, 255, 0.5);
+
+}
+@-webkit-keyframes activebutton {
+  0% {padding: 0rem;}
+  50% {padding: 1rem;}
+  100% {padding: 0rem;}
+}
+
+/* Standard syntax */
+@keyframes activebutton {
+  0% {padding: 0rem;}
+  50% {padding: 1rem;}
+  100% {padding: 0rem;}
+}
+#wincatching {
+  z-index: 9;
+  font-size: 0.5em;
+  background-color: red;
+  position: absolute;
+  width: 90%;
+  left: 5%;
+  top: 50%;
+  border-radius: 1rem;
+  padding: 2rem 0rem;
+  background-color: rgba(0, 255, 218, 0.90);
+  text-align: center;
+}
+#wincatching a {
+  display: block;
+  font-size: 2em;
+  padding: 1rem;
+  margin: 1rem;
+  box-shadow: 3px 3px 3px 0px black;
+  border-radius: 1rem;
+  color: white;
+  background-color: red;
+}
+#menu img.hidden {
+  display: none;
+}
+@media screen and (min-width: 530px) {
+  #catchbutton {
+    left:40%;
+  }
+  #wincatching {
+      font-size: 0.7em;
+  }
+}
+@media screen and (min-width: 1000px) {
+  #catchbutton  {
+
+  }
+  #wincatching {
+    font-size: 1em;
+  }
+}
+/* portret */
+@media screen and (min-width: 766px)
+  and (orientation: portrait) {
+  #catchbutton  {
+    height: 10rem;
+    width: 13%;
+    bottom:30%;
+    left: 85%;
+    right: 10px;
+  }
+  #catchbutton img {
+    width: 100%;
+  }
+}
