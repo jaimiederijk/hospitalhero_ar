@@ -8,6 +8,15 @@
 
   <!-- <script src="https://aframe.io/releases/0.9.1/aframe.min.js"></script> -->
   <!-- <script src="/javascripts/aframe-ar.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.1/socket.io.js"></script>
+  <script>
+    var origin = window.location.origin;
+    var socket = io.connect(origin);
+    socket.on('news', function (data) {
+      console.log(data);
+      socket.emit('my other event', { my: 'data' });
+    });
+  </script>
   <body>
     <!-- <button type="button" name="menu" id="menubutton">Menu</button>
     <section id="menu">
