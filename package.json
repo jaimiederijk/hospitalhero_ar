@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ode ./bin/www"
+    "start": "nodemon ode ./bin/www",
+    "sass": "node-sass -w public/stylesheets/ -o public/build/css/"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

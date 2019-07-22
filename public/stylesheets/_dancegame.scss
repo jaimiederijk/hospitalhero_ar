@@ -1,0 +1,345 @@
+@import 'common/_colors';
+/* ///////////////////////////////////////////// */
+/* dance */
+/* ///////////////////////////////////////////// */
+#dancepause {
+  position: fixed;
+  right: 0;
+}
+#dancecontainer {
+  position: fixed;
+  bottom: 0;
+
+  width: 100%;
+  height: 100%;
+}
+#dancelights {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left:0;
+  height: 70%;
+  width: 100%;
+}
+#dancelights .beamoflight {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 17vw 65vh 17vw;
+
+}
+#dancelights .colorA .beamoflight {
+    /* red */
+  border-color: transparent transparent rgba($color_a, 0.6) transparent;
+}
+#dancelights .colorB .beamoflight {
+  /* blue */
+  border-color: transparent transparent rgba($color_b, 0.6) transparent;
+}
+#dancelights .colorC .beamoflight {
+
+  border-color: transparent transparent rgba($color_c, 0.6) transparent;
+}
+#dancelights .colorD .beamoflight {
+  border-color: transparent transparent rgba($color_d, 0.6) transparent;
+
+
+}
+.lamp {
+  width: 30%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 35%;
+
+}
+.lamp img {
+  margin-left:38%;
+}
+#dancelights > div:nth-of-type(1) {
+  transform:translateX(-70vw);
+}
+#dancelights > div:nth-of-type(2) {
+  transform:translateX(-35vw);
+}
+#dancelights > div:nth-of-type(3) {
+  transform:translateX(0vw);
+}
+#dancelights > div:nth-of-type(4) {
+  transform:translateX(35vw);
+}
+#dancelights > div:nth-of-type(5) {
+  transform:translateX(70vw);
+}
+#dancelights > div:nth-of-type(6) {
+  transform:translateX(0vw);
+}
+#dancelights > div:nth-of-type(7) {
+  transform:translateX(0vw);
+}
+
+#dancecontainer #avatar {
+  position: absolute;
+  width: 50%;
+  max-height: 60%;
+  left: 25%;
+  bottom: 35%;
+  z-index: 10;
+  /* -webkit-animation-name: dance;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-name: dance;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out; */
+}
+#dancecontainer #aardvarkdodo {
+  width: 40%;
+}
+@-webkit-keyframes dance {
+  0% {transform: rotateY(0deg);}
+  50% {transform: rotateY(180deg);}
+  100% {transform: rotateY(0deg);}
+}
+
+/* Standard syntax */
+@keyframes dance {
+  0% {transform: rotateY(0deg);}
+  50% {transform: rotateY(180deg);}
+  100% {transform: rotateY(0deg);}
+}
+#dancebuttonscontainer {
+  width: 100%;
+  position: fixed;
+  /* top: 5%; */
+  bottom: 0;
+  height: 30%;
+
+}
+#dancecontainer h3 {
+  display: block;
+  position: absolute;
+  padding: 1rem;
+  font-size: 1em;
+  /* width: 4rem; */
+  /* height: 4rem; */
+  background-color: black;
+  color: white;
+  text-align: center;
+  /* padding-left: 0.5rem; */
+  z-index: 11;
+  top: 0%;
+  margin: 0;
+  border-radius: 1rem;
+  /* transition: 1.5s; */
+}
+#dancecontainer h3 em {
+  position: relative;
+  top: 0rem;
+}
+
+
+#dancebuttonscontainer .eatdance {
+  /* -webkit-animation-name: eatdanceani; /* Safari 4.0 - 8.0 */
+  /* -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+  /* -webkit-animation-iteration-count: infinite; /* Safari 4.0 - 8.0 */
+  /* -webkit-animation-timing-function: ease-in-out; */
+  /* animation-name: eatdanceani; */
+  /* animation-duration: 1s; */
+  /* animation-iteration-count: infinite; */
+  /* animation-timing-function: ease-in-out; */
+}
+@-webkit-keyframes eatdanceani {
+  0% {top:-30%;}
+  50% {top:0%;}
+  100% {top:-30%;}
+}
+
+/* Standard syntax */
+@keyframes eatdanceani {
+  0% {top:-30%;}
+  50% {top:0%;}
+  100% {top:-30%;}
+}
+#danceinstructor {
+  font-size: 0.9em;
+  width: 100%;
+  height: 15%;
+  text-align: center;
+  background-color:black ;
+  /* margin-left: -12%; */
+  margin-bottom: 0.5rem;
+  /* border-bottom: #2b1c1c solid 1px; */
+  /* border-top: #2b1c1c solid 1px; */
+
+}
+#danceinstructor .movedone {
+  color: grey;
+}
+#danceinstructor em {
+  transition-timing-function: linear;
+  position: absolute;
+  display: block;
+  top: 2.5%;
+  /* border-radius: 0.5rem; */
+  background-color: red;
+  left: 42.5%;
+  width: 15%;
+  height: 10%;
+  text-indent: -9999px;
+  white-space: nowrap;
+
+}
+/* transition animations*/
+#danceinstructor em, #danceinstructorhighlight em, .lamp {
+  transition: transform 1.5s;
+  transition-timing-function: linear;
+}
+#danceinstructor em:nth-of-type(1) {
+  transform: translateX(-60vw);
+  /* left: -12%; */
+}
+
+#danceinstructor em:nth-of-type(2) {
+  transform: translateX(-40vw);
+  /* left: 0%; */
+}
+#danceinstructor em:nth-of-type(3) {
+  transform: translateX(-20vw);
+  /* left: 12%; */
+}
+#danceinstructor em:nth-of-type(4) {
+  transform: translateX(0vw);
+  /* left: 24%; */
+}
+#danceinstructor em:nth-of-type(5) {
+  /* left: 36%; */
+  transform: translateX(20vw);
+}
+#danceinstructor em:nth-of-type(6) {
+  /* left: 48%; */
+  transform: translateX(40vw);
+}
+#danceinstructor em:nth-of-type(7) {
+  /* left: 60%; */
+  transform: translateX(60vw);
+}
+#danceinstructor em:nth-of-type(8) {
+  /* left: 72%; */
+  transform: translateX(80vw);
+}
+#danceinstructor em:nth-of-type(9) {
+  transform: translateX(100vw);
+  /* left: 84%; */
+  /* transform: translateX(96vw); */
+}
+#danceinstructorhighlight {
+  overflow: hidden;
+  border-radius: 1rem;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  width: 20%;
+  height: 15%;
+  position: absolute;
+  left: 40%;
+  top: 0%;
+  background-color: white;
+
+}
+#danceinstructorhighlight em {
+  display: block;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  text-align: center;
+  width: 80%;
+  height: 80%;
+
+
+}
+#danceinstructorhighlight em:nth-of-type(1) {
+  transform: translateX(-40vw);
+}
+#danceinstructorhighlight em:nth-of-type(2) {
+  transform: translateX(-10vw);
+}
+#danceinstructorhighlight em:nth-of-type(3) {
+  transform: translateX(20vw);
+}
+/* #danceinstructor em:nth-of-type(10) {
+  transform: translateX(108vw);
+}
+#danceinstructor em:nth-of-type(11) {
+  transform: translateX(120vw);
+} */
+/* #danceinstructor em:nth-of-type(10) {
+  left: 99.9%;
+} */
+#dancecontainer #dancelightscontainer {
+  height: 70%;
+}
+#dancecontainer .dancebuttons {
+  /* position: absolute; */
+  display: inline-block;
+  background-color: rgba(255, 78, 90, 0.5);
+  width: 20%;
+  border-radius: 1rem;
+  min-height: 3rem;
+  height: 80%;
+  margin-left: 3%;
+  margin-bottom: 2%;
+  box-shadow: 3px 3px 3px 0px black;
+  text-indent: -9999px;
+  white-space: nowrap;
+}
+#dancecontainer .dancebuttons:nth-of-type(-n+2) {
+  /* bottom: 10%; */
+}
+#dancecontainer .dancebuttons:nth-of-type(n+3) {
+  /* bottom: 30%; */
+}
+#dancecontainer .dancebuttons:nth-of-type(1), #danceinstructor .colorA , #danceinstructorhighlight .colorA {
+  background-color: rgba($color_a, 0.9);
+}
+#dancecontainer .dancebuttons:nth-of-type(2), #danceinstructor .colorB , #danceinstructorhighlight .colorB {
+  background-color: rgba($color_b, 0.9);
+}
+#dancecontainer .dancebuttons:nth-of-type(3), #danceinstructor .colorC , #danceinstructorhighlight .colorC {
+  background-color: rgba($color_c, 0.9);
+}
+#dancecontainer .dancebuttons:nth-of-type(4), #danceinstructor .colorD , #danceinstructorhighlight .colorD {
+  background-color: rgba($color_d, 0.9);
+}
+#dancecontainer .dancebuttons:nth-of-type(2),#dancecontainer .dancebuttons:nth-of-type(4) {
+  /* right: 5%; */
+}
+#danceinstructor em.currentdancemove {
+  /* color: red; */
+  /* margin-top: -2px; */
+  /* border: 6px solid white; */
+  /* border-bottom: 2px solid white; */
+}
+#dancelights .lamp .beamoflight.gothim {
+  border-color: transparent transparent rgba(0, 240, 5, 0.5) transparent;
+
+}
+#danceinstructor em.gothim, #danceinstructorhighlight em.gothim {
+  color: white;
+  background-color: rgba(0, 240, 5, 1);
+  /* margin-top: -4px; */
+  /* margin-left: -4px; */
+  /* border: 4px solid white; */
+}
+
+@media screen and (min-width: 500px) {
+  #dancecontainer h3 {
+    padding: 2.5rem;
+    font-size: 2.5em;
+  }
+  #dancecontainer .lamp img {
+    width: 8rem;
+  }
+}
+@media screen and (min-width: 1000px) {
+
+}
