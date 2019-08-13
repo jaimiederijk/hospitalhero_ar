@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <% include partials/head %>
+
+  <body id="charactercreator">
+    <ul>
+      <% users.forEach(function(user){ %>
+        <% include partials/userli %>
+      <% }) %>
+    </ul>
+  </body>
+  <!-- <script src="/javascripts/menu.js"></script> -->
+</html>
