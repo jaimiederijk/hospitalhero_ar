@@ -19,17 +19,29 @@ var danceState = {
 
 // setup adds click event to buttons
 // each click event triggers a check if currentbutton is the same as currentdance move checked by the letter
-// if true 
+// if true
 
+var ioStuff = {
+  origin : window.location.origin,
+  socket : io.connect(this.origin),
+  startListeners : () => {
+    ioStuff.socket.on('news', function (data) {
+      console.log(data);
+    });
+  },
+  pointsChange : (data) => {
+    ioStuff.socket.emit('pointchange',data)
+      // socket.emit('my other event', { my: 'data' });
 
-
+  }
+}
 
 var setup = () => {
   // document.querySelector("#avatar").style["animation-duration"] = danceState.speed/1000 +"s";
   // for (var s = 0; s < danceHtmlElements.length; s++) {
   //   danceHtmlElements.danceInstructor[s].style.transition = "left " + danceState.speed/1000 + "s";
   // }
-
+  ioStuff.startListeners();
   for (var i = 0; i < danceHtmlElements.danceButtons.length; i++) {
     console.log("add event");
     danceHtmlElements.danceButtons[i].addEventListener("click",(e)=>{
@@ -127,6 +139,7 @@ var updatePoints = () => {
   if (danceHtmlElements.points) {
     danceState.points = danceState.points + 1;
     danceHtmlElements.points.innerHTML = danceState.points;
+    ioStuff.pointsChange({newPoints: danceState.points});
     // setTimeout(()=>{
     //   void danceHtmlElements.points.parentNode.offsetWidth;
     //   danceHtmlElements.points.parentNode.classList.add("eatdance");
