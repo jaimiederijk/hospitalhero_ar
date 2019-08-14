@@ -4,12 +4,20 @@
 
   <body id="charactercreator">
     <h2><%= username %></h2>
+    <p>Kies een karakter</p>
     <form class="createuser" method="post">
-      Kies een karakter
-      
-      <input type="radio" name="pick_a_character" value="1" checked>Man<br>
-      <input type="radio" name="pick_a_character" value="2">Vrouw<br>
-      <input type="radio" name="pick_a_character" value="3">Dier<br>
+
+      <label>
+        <!-- <em>Jongen</em> -->
+        <input type="radio" name="pick_a_character" value="boy" checked>
+        <img src="/images/boy.svg" alt="">
+      </label>
+      <label>
+        <!-- <em>Meisje</em> -->
+        <input type="radio" name="pick_a_character" value="girl">
+        <img src="/images/girl.svg" alt="">
+      </label>
+
       <input type="submit" value="Submit">
     </form>
   </body>

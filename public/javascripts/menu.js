@@ -31,6 +31,7 @@ var app = {
   timeBetweenApearences:5000,
   howManyActive:6,
   messageTime: 1500,
+  userId: window.location.pathname.slice(1).slice(0,-5),
 }
 // array of figures that can be captured
 var figures = [
@@ -227,7 +228,26 @@ var messages = {
 
 }
 
+var ioStuff = {
+  origin : window.location.origin,
+  socket : io.connect(this.origin),
+  startListeners : () => {
+    ioStuff.socket.on('news', function (data) {
+      console.log(data);
+    });
+  },
+  loginToAdmin : () => {
+    console.log("inToAdmin");
 
+    ioStuff.socket.emit('loginToAdmin',{id:app.userId, gametype:"catch"});
+  },
+  pointsChange : (data) => {
+
+    ioStuff.socket.emit('pointchange',{id:app.userId, data: data, gametype:"catch"})
+      // socket.emit('my other event', { my: 'data' });
+
+  }
+}
 
 var createFiguresList = () => {
   var liString = "";
@@ -270,7 +290,7 @@ var addListeners = () => {
           // add figure to bag
           createFiguresList();
           app.howManyCatched += 1;
-
+          ioStuff.pointsChange({newPoints:app.howManyCatched});
           // send message
           messages.createMessage("Je hebt de "+ figures[markers[i].whichFigure].name + " gevangen");
 
@@ -283,7 +303,7 @@ var addListeners = () => {
           }
           // remove 3d figure because catched
           htmlElements[markers[i].name].innerHTML = "";
-          console.log("catch figure");
+          // console.log("catch figure");
           catchButton.classList.add("nonactive");
         }
       }
@@ -298,7 +318,7 @@ var addListeners = () => {
       //marker in frame
       htmlElements[markers[t].name].addEventListener("markerFound", (e)=>{
         markers[e.currentTarget.markerIndex].pointingAtMarker = true;
-        console.log("which marker found:" + e.currentTarget.markerIndex);
+        // console.log("which marker found:" + e.currentTarget.markerIndex);
         // if there is a figure at the currenmarker
         if (markers[e.currentTarget.markerIndex].figureAtMarker) {
 
@@ -311,7 +331,7 @@ var addListeners = () => {
 
         //no marker in sight
         markers[e.currentTarget.markerIndex].pointingAtMarker = false;
-        console.log("lose marker");
+        // console.log("lose marker");
         catchButton.classList.add("nonactive");
       })
     }
@@ -347,7 +367,7 @@ var moveFigures = {
       }
       // did not find empty marker
       if (!foundEmptyMarker) {
-        console.log("try move again "+ figureIndex);
+        // console.log("try move again "+ figureIndex);
         moveFigures.randomlyMoveAround(figureIndex);
       }
     },Math.random() * app.timeBetweenApearences)
@@ -365,7 +385,7 @@ var moveFigures = {
       }
       setTimeout((e) =>{
         // after timeout deactivate figure
-        console.log(figureIndex +" :F and M: "+markerIndex);
+        // console.log(figureIndex +" :F and M: "+markerIndex);
         htmlElements[markers[markerIndex].name].innerHTML = "";
         markers[markerIndex].figureAtMarker = false;
         markers[markerIndex].whichFigure = false;
@@ -381,7 +401,7 @@ var moveFigures = {
           catchButton.classList.add("nonactive");
         }
 
-        console.log("try move again after apearence"+ figureIndex);
+        // console.log("try move again after apearence"+ figureIndex);
         moveFigures.randomlyMoveAround(figureIndex);
       }, 5000)
     }
@@ -391,6 +411,8 @@ var moveFigures = {
 }
 
 var onStartSetup = () => {
+  ioStuff.startListeners();
+  ioStuff.loginToAdmin();
   if (menu) {
     menu.classList.add("hidden");
 

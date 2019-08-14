@@ -2,29 +2,66 @@ var socket_io = require('socket.io');
 var io = socket_io();
 var socketApi = {};
 
+var connector  = require('./lib/connector');
+
 socketApi.io = io;
 
-var clients = [];
+var clientsFocus = [];
+
+
 
 io.on('connection', function(socket){
   socket.username = "Anonymous";
   socket.join('playersroom');
-  clients.push({id : socket.id,rooms : socket.rooms, name: socket.username});
 
-  adminSpace.emit('adminupdateuserlist',clients)
+
+  //adminSpace.emit('adminupdateuserlist',clients)
   console.log('A user connected');
   io.emit('news',"heelo");
   socket.username = "Anonymous";
 
+  socket.on('loginToAdmin',(info)=>{
+    console.log("loginToAdmin");
+    console.log(info);
+
+    connector.dbactions.findUser(info.id, (data)=>{
+
+      clientsFocus.push({socketid : socket.id,rooms : socket.rooms, data:data, points:0, gametype:info.gametype });
+      adminSpace.emit('adminupdateuserlist',clientsFocus);
+    })
+  })
 
   socket.on('pointchange',(data)=>{
-    io.emit('adminupdatepoints',data);
+    console.log("pointsChange");
     console.log(data);
+    // io.emit('adminupdatepoints',data);
+    // modify clients with new points
+    var userInClientsIndex = clientsFocus.findIndex(function(user){ return user.data._id == data.id; });
+    console.log(userInClientsIndex);
+    //no result
+    if (userInClientsIndex == -1) {
+      console.log("not in client yet");
+      connector.dbactions.findUser(data.id, (userdata)=>{
+
+        clientsFocus.push({socketid : socket.id,rooms : socket.rooms, data:userdata, points:data.data.newPoints, gametype:data.gametype });
+        adminSpace.emit('adminupdateuserlist',clientsFocus);
+      })
+    } else {
+      clientsFocus[userInClientsIndex].points = data.data.newPoints;
+      console.log(clientsFocus);
+    }
+
+    adminSpace.emit('adminupdateuserlist',clientsFocus);
+
   })
   socket.on('disconnect', ()=>{
-    clients.splice(clients.indexOf(socket), 1)
+    clientsFocus.splice(clientsFocus.indexOf(socket), 1)
+    adminSpace.emit('adminupdateuserlist',clientsFocus);
   })
 });
+
+
+
 
 const adminSpace = io.of('/admin');
 adminSpace.on('connection', ()=>{

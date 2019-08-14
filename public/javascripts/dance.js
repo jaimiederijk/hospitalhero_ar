@@ -12,7 +12,8 @@ var danceState = {
   startStop: false,
   danceMoves: ["A","B","C","D"],
   danceInstructions:["A","D","D","B","B","D","D"],
-  currentDanceMove: "B"
+  currentDanceMove: "B",
+  userId: window.location.pathname.slice(1).slice(0,-6),
 
 }
 
@@ -29,11 +30,18 @@ var ioStuff = {
       console.log(data);
     });
   },
+  loginToAdmin : () => {
+    console.log("inToAdmin");
+
+    ioStuff.socket.emit('loginToAdmin',{id:danceState.userId, gametype:"focus"});
+  },
   pointsChange : (data) => {
-    ioStuff.socket.emit('pointchange',data)
+
+    ioStuff.socket.emit('pointchange',{id:danceState.userId, data: data, gametype:"focus"})
       // socket.emit('my other event', { my: 'data' });
 
   }
+
 }
 
 var setup = () => {
@@ -42,6 +50,7 @@ var setup = () => {
   //   danceHtmlElements.danceInstructor[s].style.transition = "left " + danceState.speed/1000 + "s";
   // }
   ioStuff.startListeners();
+  ioStuff.loginToAdmin();
   for (var i = 0; i < danceHtmlElements.danceButtons.length; i++) {
     console.log("add event");
     danceHtmlElements.danceButtons[i].addEventListener("click",(e)=>{
@@ -74,7 +83,7 @@ var startGame = () => {
     updatedLampList[1].parentNode.removeChild(updatedLampList[0]);
 
     var newLamp = document.createElement("div");
-    newLamp.innerHTML = `<img src="images/lamp.svg" alt="lamp">
+    newLamp.innerHTML = `<img src="/images/lamp.svg" alt="lamp">
       <div class="beamoflight"></div>`;
     newLamp.classList.add("lamp");
     newLamp.classList.add("color" + color)

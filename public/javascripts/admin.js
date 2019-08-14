@@ -13,19 +13,21 @@ ioStuff = {
       console.log(data);
     });
     ioStuff.socket.on('adminupdateuserlist', function (data) {
+      console.log("updat user list");
+      console.log(data);
       var htmlString = "";
       for (var i = 0; i < data.length; i++) {
-        htmlString = htmlString + "<li>" + data[i] + "</li>";
+        htmlString = htmlString + "<li>" + data[i].data.username + "<div>"+ data[i].points +"</div><div>"+ data[i].gametype +"</div></li>";
       }
       viewChanges.updateUserList(htmlString);
-      console.log(data);
+
     });
   },
 
 }
 
 var viewChanges = {
-  updatePoints : (p) => {
+  updateCatchUserList : (p) => {
     adminHtmlElemenents.adminDancePoints.innerHTML = p;
   },
   updateUserList : (l) => {

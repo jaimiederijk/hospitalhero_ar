@@ -1,0 +1,29 @@
+@import 'common/_colors';
+
+#startmenu {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+  .character_card {
+    background-color: $color_a;
+    //padding: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    left:10%;
+    // position: absolute;
+
+    h2 {
+      display: block;
+
+    }
+    img {
+      height: 3rem;
+      width: 3rem;
+      margin: 0;
+    }
+
+  }
+}
