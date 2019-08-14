@@ -66,5 +66,23 @@ router.get('/login',(req, res, next)=> {
     });
   })
 })
+router.post('/login',(req, res, next)=> {
+  console.log(req.body);
+  connector.dbactions.find(req.body,(docs)=>{
+    console.log(docs);
+    if (!Array.isArray(docs) || !docs.length) {
+      res.render('login',{
+        loginsucces: false,
+        title: 'HospitalHero',
+        users:docs,
+      });
+    }else if (!docs[0].character) {
+      res.redirect('/users/'+ docs[0]._id +'/charactercreator')
+    }else {
+      res.redirect('/users/'+ docs[0]._id +'/character')
+    }
+
+  })
+})
 
 module.exports = router;

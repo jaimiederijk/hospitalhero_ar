@@ -2,7 +2,12 @@
 <html>
   <% include partials/head %>
 
-  <body id="charactercreator">
+  <body id="login">
+    
+    <form class="login" action="/users/login" method="post">
+      <input type="text" name="username" placeholder="Anne"><br>
+      <input type="submit" value="Submit">
+    </form>
     <ul>
       <% users.forEach(function(user){ %>
         <% include partials/userli %>
