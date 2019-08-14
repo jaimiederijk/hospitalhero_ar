@@ -4,7 +4,7 @@
 
 @font-face {
     font-family: 'Chalkduster';
-    src:url('Chalkduster.ttf.woff') format('woff');
+    src:url('../../Chalkduster.ttf.woff') format('woff');
         font-weight: normal;
         font-style: normal;
 }
@@ -14,7 +14,8 @@
 @import 'catchgame';
 @import 'dancegame';
 @import 'messagebox';
-
+@import 'createcharacter';
+@import 'character';
 
 
 body {

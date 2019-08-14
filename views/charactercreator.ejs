@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <% include partials/head %>
+
+  <body id="charactercreator">
+    <h2><%= username %></h2>
+    <p>Kies een karakter</p>
+    <form class="createuser" method="post">
+
+      <label>
+        <!-- <em>Jongen</em> -->
+        <input type="radio" name="pick_a_character" value="boy" checked>
+        <img src="/images/boy.svg" alt="">
+      </label>
+      <label>
+        <!-- <em>Meisje</em> -->
+        <input type="radio" name="pick_a_character" value="girl">
+        <img src="/images/girl.svg" alt="">
+      </label>
+
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+  <!-- <script src="/javascripts/menu.js"></script> -->
+</html>

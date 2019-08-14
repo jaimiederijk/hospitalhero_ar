@@ -12,24 +12,45 @@ var danceState = {
   startStop: false,
   danceMoves: ["A","B","C","D"],
   danceInstructions:["A","D","D","B","B","D","D"],
-  currentDanceMove: "B"
+  currentDanceMove: "B",
+  userId: window.location.pathname.slice(1).slice(0,-6),
 
 }
 
 
 // setup adds click event to buttons
 // each click event triggers a check if currentbutton is the same as currentdance move checked by the letter
-// if true 
+// if true
 
+var ioStuff = {
+  origin : window.location.origin,
+  socket : io.connect(this.origin),
+  startListeners : () => {
+    ioStuff.socket.on('news', function (data) {
+      console.log(data);
+    });
+  },
+  loginToAdmin : () => {
+    console.log("inToAdmin");
 
+    ioStuff.socket.emit('loginToAdmin',{id:danceState.userId, gametype:"focus"});
+  },
+  pointsChange : (data) => {
 
+    ioStuff.socket.emit('pointchange',{id:danceState.userId, data: data, gametype:"focus"})
+      // socket.emit('my other event', { my: 'data' });
+
+  }
+
+}
 
 var setup = () => {
   // document.querySelector("#avatar").style["animation-duration"] = danceState.speed/1000 +"s";
   // for (var s = 0; s < danceHtmlElements.length; s++) {
   //   danceHtmlElements.danceInstructor[s].style.transition = "left " + danceState.speed/1000 + "s";
   // }
-
+  ioStuff.startListeners();
+  ioStuff.loginToAdmin();
   for (var i = 0; i < danceHtmlElements.danceButtons.length; i++) {
     console.log("add event");
     danceHtmlElements.danceButtons[i].addEventListener("click",(e)=>{
@@ -62,7 +83,7 @@ var startGame = () => {
     updatedLampList[1].parentNode.removeChild(updatedLampList[0]);
 
     var newLamp = document.createElement("div");
-    newLamp.innerHTML = `<img src="images/lamp.svg" alt="lamp">
+    newLamp.innerHTML = `<img src="/images/lamp.svg" alt="lamp">
       <div class="beamoflight"></div>`;
     newLamp.classList.add("lamp");
     newLamp.classList.add("color" + color)
@@ -127,6 +148,7 @@ var updatePoints = () => {
   if (danceHtmlElements.points) {
     danceState.points = danceState.points + 1;
     danceHtmlElements.points.innerHTML = danceState.points;
+    ioStuff.pointsChange({newPoints: danceState.points});
     // setTimeout(()=>{
     //   void danceHtmlElements.points.parentNode.offsetWidth;
     //   danceHtmlElements.points.parentNode.classList.add("eatdance");

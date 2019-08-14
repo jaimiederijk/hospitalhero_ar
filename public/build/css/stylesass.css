@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Chalkduster';
-  src: url("Chalkduster.ttf.woff") format("woff");
+  src: url("../../Chalkduster.ttf.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 
@@ -17,7 +17,7 @@ VARIABLES
   position: absolute;
   width: 90%;
   height: 80%;
-  top: 1rem;
+  top: 6rem;
   z-index: 9;
   left: 5%;
   border-radius: 1rem;
@@ -618,6 +618,51 @@ VARIABLES
   .messagebox {
     top: 10%;
     font-size: 3em; } }
+
+#charactercreator {
+  /* CHECKED STYLES */ }
+  #charactercreator form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: stretch; }
+  #charactercreator em {
+    display: block; }
+  #charactercreator [type=radio] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0; }
+    #charactercreator [type=radio] + img {
+      cursor: pointer; }
+  #charactercreator [type=radio]:checked + img {
+    outline: 2px solid #f00; }
+  #charactercreator img {
+    height: 30rem; }
+  #charactercreator input:last-of-type {
+    width: 80%; }
+
+/*********************
+VARIABLES
+*********************/
+#startmenu {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center; }
+  #startmenu .character_card {
+    background-color: #00adef;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    left: 10%; }
+    #startmenu .character_card h2 {
+      display: block; }
+    #startmenu .character_card img {
+      height: 3rem;
+      width: 3rem;
+      margin: 0; }
 
 body {
   margin: 0px;

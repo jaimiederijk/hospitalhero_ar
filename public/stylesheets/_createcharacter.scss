@@ -1,0 +1,37 @@
+#charactercreator {
+  form {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-evenly;
+     align-items:  stretch ;
+  }
+  em {
+    display: block;
+  }
+  [type=radio] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    + img {
+      cursor: pointer;
+    }
+  }
+
+  /* CHECKED STYLES */
+  [type=radio]:checked + img {
+    outline: 2px solid #f00;
+  }
+  label {
+    // flex-grow: 3;
+  }
+  img {
+    height: 30rem;
+  }
+  input {
+
+  }
+  input:last-of-type {
+    width: 80%;
+  }
+}
