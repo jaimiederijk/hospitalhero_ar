@@ -29,6 +29,9 @@ var ioStuff = {
     ioStuff.socket.on('news', function (data) {
       console.log(data);
     });
+    ioStuff.socket.on('msg', (msg)=>{
+      console.log(msg);
+    })
   },
   loginToAdmin : () => {
     console.log("inToAdmin");

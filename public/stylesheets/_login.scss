@@ -14,11 +14,18 @@
     border-radius: 1rem;
     input {
       font-size: 2em;
-      background-color: $color_a;
+      // background-color: $color_a;
       border: none;
       position: relative;
       /* text-align: center; */
       left: 10%;
+    }
+    input[type=submit] {
+      background-color: $color_b;
+      padding: 1rem;
+      border-radius: 1rem;
+      position: relative;
+      left: 80%;
     }
   }
   ul {

@@ -1,4 +1,12 @@
+@import 'common/_colors';
+
 #charactercreator {
+  background-color: $color_a;
+  font-size: 2em;
+  header {
+    position: relative;
+    left: 30%;
+  }
   form {
      display: flex;
      flex-wrap: wrap;
@@ -28,7 +36,14 @@
   img {
     height: 30rem;
   }
-  input {
+  input[type=submit] {
+    background-color: $color_b;
+    padding: 1rem;
+    border-radius: 1rem;
+    font-size: 1em;
+    font-family: 'Chalkduster', 'EraserRegular-webfont',"Lucida Grande", Helvetica, Arial, sans-serif;
+    // position: relative;
+    // left: 80%;
 
   }
   input:last-of-type {
