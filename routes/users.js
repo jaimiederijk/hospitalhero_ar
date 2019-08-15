@@ -76,7 +76,7 @@ router.post('/login',(req, res, next)=> {
         title: 'HospitalHero',
         users:docs,
       });
-    }else if (!docs[0].character) {
+    }else if (!docs[0].pick_a_character) {
       res.redirect('/users/'+ docs[0]._id +'/charactercreator')
     }else {
       res.redirect('/users/'+ docs[0]._id +'/character')

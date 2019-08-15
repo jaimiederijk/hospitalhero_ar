@@ -11,30 +11,31 @@
 
   <script src="https://aframe.io/releases/0.9.1/aframe.min.js"></script>
   <script src="/javascripts/aframe-ar.min.js"></script>
-  <body id="startmenu">
+  <body >
 
-    <a-scene embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
+    <!-- <a-scene embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
       <a-camera-static/>
-      <!-- <a-entity camera></a-entity> -->
-    </a-scene>
+      <a-entity camera></a-entity>
+    </a-scene> -->
+    <div id="startmenu">
+      <header>
+        <!-- <h1 class="hidden">HospitalHero</h1> -->
+        <img src="/images/Hospitalhero.PNG" alt="">
+        <nav>
+          <ul>
+            <li>
 
-    <header>
-      <!-- <h1 class="hidden">HospitalHero</h1> -->
-      <img src="/images/Hospitalhero.PNG" alt="">
-      <nav>
-        <ul>
-          <li>
+              <a href="/users"><em>Maak een nieuw karakter</em></a>
+              <!-- <a href="/game"><em>Vangspel</em></a> -->
+              <!-- <a href="/dance"><em>Focusspel</em></a> -->
+              <a href="/users/login"><em>Login</em></a>
+            </li>
 
-            <a href="/users">login in of maak een nieuw karakter</a>
-            <!-- <a href="/game"><em>Vangspel</em></a> -->
-            <!-- <a href="/dance"><em>Focusspel</em></a> -->
-          </li>
-          <!-- <li>
-            <a href="#"></a>
-          </li> -->
-        </ul>
-      </nav>
-    </header>
+          </ul>
+        </nav>
+      </header>
+    </div>
+
 
 
   </body>

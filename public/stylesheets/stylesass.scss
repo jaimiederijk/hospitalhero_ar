@@ -4,9 +4,17 @@
 
 @font-face {
     font-family: 'Chalkduster';
-    src:url('../../Chalkduster.ttf.woff') format('woff');
+    src:url('/Chalkduster.ttf.woff') format('woff');
         font-weight: normal;
         font-style: normal;
+}
+@font-face{
+	font-family: 'EraserRegular-webfont';
+	src: url('/EraserRegular-webfont.eot');
+	src: url('/EraserRegular-webfont.eot?iefix') format('eot'),
+	     url('/EraserRegular-webfont.woff') format('woff'),
+	     url('/EraserRegular-webfont.ttf') format('truetype'),
+	     url('/EraserRegular-webfont.svg#webfont') format('svg');
 }
 
 @import 'common/_colors';
@@ -16,7 +24,7 @@
 @import 'messagebox';
 @import 'createcharacter';
 @import 'character';
-
+@import 'login';
 
 body {
 
@@ -24,7 +32,7 @@ body {
   overflow: hidden;
   /* padding: 0px; */
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  font-family: 'Chalkduster';
+  font-family: 'Chalkduster', 'EraserRegular-webfont',"Lucida Grande", Helvetica, Arial, sans-serif;
 }
 body a-scene {
   max-height: 100%;

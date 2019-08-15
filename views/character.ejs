@@ -2,34 +2,40 @@
 <html>
   <% include partials/head %>
 
-  <body id="startmenu">
-    <section class="character_card">
-      <h2><%= username %></h2>
-      <img src=<%="/images/"+  character + ".svg" %> alt="">
-    </section>
-
+  <body >
     <!-- <a-scene embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
       <a-camera-static/>
 
     </a-scene> -->
+    <div id="startmenu">
 
-    <header>
-      <!-- <h1 class="hidden">HospitalHero</h1> -->
-      <img src="/images/Hospitalhero.PNG" alt="">
-      <nav>
-        <ul>
-          <li>
+      <header>
+        <!-- <h1 class="hidden">HospitalHero</h1> -->
+        <img src="/images/Hospitalhero.PNG" alt="">
+        <nav>
+          <ul>
+            <li>
 
-            <!-- <a href="/users">login in of maak een nieuw karakter</a> -->
-            <a href=<%="/" + userid + "/game"%>><em>Vangspel</em></a>
-            <a href=<%="/" + userid +"/dance"%>><em>Focusspel</em></a>
-          </li>
-          <!-- <li>
-            <a href="#"></a>
-          </li> -->
-        </ul>
-      </nav>
-    </header>
+              <!-- <a href="/users">login in of maak een nieuw karakter</a> -->
+              <a href=<%="/" + userid + "/game"%>><em>Vangspel</em></a>
+              <a href=<%="/" + userid +"/dance"%>><em>Focusspel</em></a>
+            </li>
+            <!-- <li>
+              <a href="#"></a>
+            </li> -->
+          </ul>
+        </nav>
+      </header>
+      <section class="character_card">
+        <h2><%= username %></h2>
+        <img src=<%="/images/"+  character + ".svg" %> alt="">
+      </section>
+    </div>
+
+
+    <!--  -->
+
+
   </body>
 
   <!-- <script src="/javascripts/menu.js"></script> -->

@@ -4,8 +4,10 @@
 @import 'common/_colors';
 
 #startmenu {
+
+
   header {
-    position: absolute;
+    // position: absolute;
     width: 90%;
     height: 80%;
     top: 6rem;
@@ -33,10 +35,11 @@
     text-align: center;
     display: block;
     color: black;
+    text-transform: capitalize;
     font-size: 2em;
     text-decoration: none;
     background-color: $color_a;
-    /* padding: 1rem; */
+    padding: 1rem 0;
     border-radius: 1rem;
     width: 85%;
     margin-top: 1rem;
@@ -48,6 +51,8 @@
   li em {
     display: block;
     padding: 1rem;
+    font-style: normal;
+    font-weight: bold;
   }
 }
 

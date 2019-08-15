@@ -1,8 +1,13 @@
 @font-face {
   font-family: 'Chalkduster';
-  src: url("../../Chalkduster.ttf.woff") format("woff");
+  src: url("/Chalkduster.ttf.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
+
+@font-face {
+  font-family: 'EraserRegular-webfont';
+  src: url("/EraserRegular-webfont.eot");
+  src: url("/EraserRegular-webfont.eot?iefix") format("eot"), url("/EraserRegular-webfont.woff") format("woff"), url("/EraserRegular-webfont.ttf") format("truetype"), url("/EraserRegular-webfont.svg#webfont") format("svg"); }
 
 /*********************
 VARIABLES
@@ -14,7 +19,6 @@ VARIABLES
 VARIABLES
 *********************/
 #startmenu header {
-  position: absolute;
   width: 90%;
   height: 80%;
   top: 6rem;
@@ -42,10 +46,11 @@ VARIABLES
   text-align: center;
   display: block;
   color: black;
+  text-transform: capitalize;
   font-size: 2em;
   text-decoration: none;
   background-color: #00adef;
-  /* padding: 1rem; */
+  padding: 1rem 0;
   border-radius: 1rem;
   width: 85%;
   margin-top: 1rem;
@@ -56,7 +61,9 @@ VARIABLES
 
 #startmenu li em {
   display: block;
-  padding: 1rem; }
+  padding: 1rem;
+  font-style: normal;
+  font-weight: bold; }
 
 @media screen and (min-width: 500px) {
   #startmenu header {
@@ -646,30 +653,60 @@ VARIABLES
 VARIABLES
 *********************/
 #startmenu {
+  position: absolute;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  align-items: center; }
+  align-items: center;
+  background-image: url("/images/ziekenhuisdesign.jpg");
+  width: 100%;
+  height: 100vh; }
   #startmenu .character_card {
     background-color: #00adef;
+    font-size: 2em;
     border-radius: 1rem;
     display: flex;
     justify-content: space-around;
+    align-items: center;
     width: 80%;
     left: 10%; }
     #startmenu .character_card h2 {
       display: block; }
     #startmenu .character_card img {
-      height: 3rem;
+      height: 3em;
       width: 3rem;
       margin: 0; }
+
+/*********************
+VARIABLES
+*********************/
+#login {
+  background-image: url("/images/ziekenhuisdesign.jpg");
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center; }
+  #login form {
+    width: 80%;
+    background-color: #00adef;
+    padding: 2rem 1rem;
+    border-radius: 1rem; }
+    #login form input {
+      font-size: 2em;
+      background-color: #00adef;
+      border: none;
+      position: relative;
+      /* text-align: center; */
+      left: 10%; }
+  #login ul {
+    width: 80%; }
 
 body {
   margin: 0px;
   overflow: hidden;
   /* padding: 0px; */
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  font-family: 'Chalkduster'; }
+  font-family: 'Chalkduster', 'EraserRegular-webfont',"Lucida Grande", Helvetica, Arial, sans-serif; }
 
 body a-scene {
   max-height: 100%;

@@ -1,0 +1,28 @@
+@import 'common/_colors';
+
+#login {
+  background-image: url("/images/ziekenhuisdesign.jpg");
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+
+  form {
+    width: 80%;
+    background-color: $color_a;
+    padding: 2rem 1rem;
+    border-radius: 1rem;
+    input {
+      font-size: 2em;
+      background-color: $color_a;
+      border: none;
+      position: relative;
+      /* text-align: center; */
+      left: 10%;
+    }
+  }
+  ul {
+    width: 80%;
+
+  }
+}
