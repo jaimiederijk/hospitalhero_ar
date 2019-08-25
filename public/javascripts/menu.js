@@ -15,6 +15,8 @@ var htmlElements = {
   dMarker : document.querySelector('#dmarker'),
   winCatching : document.querySelector('#wincatching'),
   catchCounter : document.querySelector('#menubutton em'),
+  objectiveMenu : document.querySelector('#objective_menu'),
+  objectiveButton : document.querySelector('#objective_button'),
 };
 
 var menuButton = document.querySelector('#menubutton');
@@ -228,6 +230,13 @@ var messages = {
 
 }
 
+var objectives = () => {
+  htmlElements.objectiveButton.addEventListener("click",(e) => {
+    htmlElements.objectiveButton.classList.toggle("close");
+    htmlElements.objectiveMenu.classList.toggle("hidden");
+  })
+}
+
 var ioStuff = {
   origin : window.location.origin,
   socket : io.connect(this.origin),
@@ -413,6 +422,7 @@ var moveFigures = {
 var onStartSetup = () => {
   ioStuff.startListeners();
   ioStuff.loginToAdmin();
+  objectives();
   if (menu) {
     menu.classList.add("hidden");
 

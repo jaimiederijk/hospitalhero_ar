@@ -8,7 +8,7 @@ var danceHtmlElements = {
 }
 var danceState = {
   points: 0,
-  speed:1500,
+  speed:1200,// dont forget css transition
   startStop: false,
   danceMoves: ["A","B","C","D"],
   danceInstructions:["A","D","D","B","B","D","D"],

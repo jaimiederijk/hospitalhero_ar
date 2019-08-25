@@ -38,23 +38,28 @@
   width: 60%;
 }
 #menubutton {
+  width: 20%;
+  height: 20vw;
   position: fixed;
   font-size: 1.5em;
-  background-color: transparent;
-  border: none;
+  background-color: #00c8f5;
+  border-radius: 1rem;
+  // border: none;
   font-weight: bold;
-  bottom: 0;
-  right: 0;
+  bottom: 10px;;
+  right:10px;
   z-index: 9;
+  box-shadow: 3px 3px 3px 0px black;
 }
 #menubutton img {
-  width: 6rem;
+  width: 100%;
+  padding-top: 10px;
 }
 #menubutton em {
-  position: absolute;
+  position: fixed;
   z-index: 10;
-  right: 3rem;
-  bottom: 2.3rem;
+
+  bottom: 33px;
 }
 #closemenubutton {
   position: fixed;
@@ -68,26 +73,30 @@
   background-color: rgba(0, 255, 218, 0.70);
 }
 #catchbutton {
-  /* padding: 0.5rem; */
-  height: 10%;
-  left: 5%;
-  width: 5em;
-  background-color: rgba(0, 255, 218, 0.70);
+
+  padding: 0.5rem;
+  /* height: 10%; */
+  width: 20%;
+  /* left: 5%; */
+  /* width: 5em; */
+  background-color: rgba(0, 255, 218, 0.7);
   font-weight: bold;
   color: rgba(255, 255, 255, 0.9);
   font-size: 3em;
   /* margin-left: -2.5em; */
   position: fixed;
-  bottom: 10px;
+  bottom: 100px;
+  height: 30vh;
   z-index: 9;
+  right: 10px;
   border-radius: 1rem;
-  -webkit-transition: background-color 1s; /* Safari prior 6.1 */
-  transition:  background-color 1s;
+  -webkit-transition: background-color 1s;
+  transition: background-color 1s;
   box-shadow: 3px 3px 3px 0px black;
 }
 #catchbutton img {
-  /* width: 4rem; */
-  height: 90%;
+  width: 100%;
+
   padding-top: 0.3rem;
 }
 #catchbutton:not(.nonactive) {
@@ -105,6 +114,54 @@
   color: rgba(255, 255, 255, 0.5);
 
 }
+#objective_menu {
+  position: fixed;
+  width: 100%;
+  height: 80%;
+  border-radius: 1rem;
+  z-index: 10;
+  left: 0;
+  background-color: rgb(9, 236, 9);
+  text-align: center;
+  .objectives_text {
+    background-color: #ffffe8;
+    margin: 1rem;
+    padding: 1rem;
+    text-align: left;
+    strong {
+      font-weight: bold;
+
+    }
+  }
+  img {
+    width: 3rem;
+  }
+}
+#objective_button {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  background-color: rgb(9, 236, 9);
+  width: 20%;
+  height: 20vw;
+  border-radius: 1rem;
+  font-size: 1.5em;
+  font-weight: bold;
+  z-index: 10;
+  box-shadow: 3px 3px 3px 0px black;
+
+  img {
+    width: 50%;
+    transition: transform 1s;
+  }
+
+}
+.close {
+
+  img {
+    transform: rotate(180deg);
+  }
+}
 @-webkit-keyframes activebutton {
   0% {padding: 0rem;}
   50% {padding: 1rem;}
@@ -118,7 +175,7 @@
   100% {padding: 0rem;}
 }
 #wincatching {
-  z-index: 9;
+  z-index: 11;
   font-size: 0.5em;
   background-color: red;
   position: absolute;
@@ -145,25 +202,27 @@
 }
 @media screen and (min-width: 530px) {
   #catchbutton {
-    left:40%;
+    //top: 50%;
+
   }
+
   #wincatching {
       font-size: 0.7em;
   }
 }
 @media screen and (min-width: 1000px) {
   #catchbutton  {
-
+    // top: 45%;
+    // width: 10%;
   }
   #wincatching {
     font-size: 1em;
   }
 }
 /* portret */
-@media screen and (min-width: 766px)
-  and (orientation: portrait) {
+@media screen and (min-width: 766px) {
   #catchbutton  {
-    height: 10rem;
+    //height: 10rem;
     width: 13%;
     bottom:30%;
     left: 85%;
@@ -171,5 +230,14 @@
   }
   #catchbutton img {
     width: 100%;
+  }
+  #menubutton {
+    width: 13%;
+    left: 85%;
+    height: 13vw;
+  }
+  #objective_button {
+    width: 13%;
+    height: 13vw;
   }
 }

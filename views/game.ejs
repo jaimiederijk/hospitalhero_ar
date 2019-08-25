@@ -10,7 +10,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.1/socket.io.js"></script>
   <body>
     <button type="button" name="menu" id="menubutton">
-      <img src="/images/briefcase.svg" alt="menu for catched">
+      <img src="/images/suitcase.svg" alt="menu for catched">
+      <em>0</em>
+    </button>
+    <button type="button" name="button" id="objective_button">
+      <img src="/images/icon-message-bottle.svg" alt="bottle">
       <em>0</em>
     </button>
     <section id="wincatching" class="hidden">
@@ -19,6 +23,7 @@
       <h2>Ze starten een feestje</h2>
       <a href="./dance">Doe met ze mee!</a>
     </section>
+    <% include partials/objectives %>
     <section id="menu">
 
       <ul>
