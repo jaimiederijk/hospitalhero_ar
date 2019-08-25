@@ -681,21 +681,12 @@ VARIABLES
   background-size: cover;
   width: 100%;
   height: 100vh; }
-  #startmenu .character_card {
-    background-color: #00adef;
-    font-size: 2em;
-    border-radius: 1rem;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 80%;
-    left: 10%; }
-    #startmenu .character_card h2 {
-      display: block; }
-    #startmenu .character_card img {
-      height: 3em;
-      width: 3rem;
-      margin: 0; }
+  #startmenu h2 {
+    display: block; }
+  #startmenu img {
+    height: 3em;
+    width: 3rem;
+    margin: 0; }
 
 /*********************
 VARIABLES
@@ -747,6 +738,16 @@ body a-scene.tiny {
 
 a {
   color: #00B7FF; }
+
+.character_card {
+  background-color: #00adef;
+  font-size: 2em;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  left: 10%; }
 
 button {
   touch-action: manipulation; }
