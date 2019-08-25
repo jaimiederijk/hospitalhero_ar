@@ -204,6 +204,7 @@ VARIABLES
   border-radius: 1rem;
   z-index: 10;
   left: 0;
+  top: 0;
   background-color: #09ec09;
   text-align: center; }
   #objective_menu .objectives_text {
@@ -299,6 +300,8 @@ VARIABLES
     width: 13%;
     left: 85%;
     height: 13vw; }
+  #objective_menu {
+    height: 70%; }
   #objective_button {
     width: 13%;
     height: 13vw; } }

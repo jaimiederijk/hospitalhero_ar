@@ -121,6 +121,7 @@
   border-radius: 1rem;
   z-index: 10;
   left: 0;
+  top: 0;
   background-color: rgb(9, 236, 9);
   text-align: center;
   .objectives_text {
@@ -235,6 +236,9 @@
     width: 13%;
     left: 85%;
     height: 13vw;
+  }
+  #objective_menu {
+    height: 70%;
   }
   #objective_button {
     width: 13%;
