@@ -18,7 +18,7 @@
 
               <!-- <a href="/users">login in of maak een nieuw karakter</a> -->
               <a href=<%="/" + userid + "/game"%>><em>Vangspel</em></a>
-              <a href=<%="/" + userid +"/dance"%>><em>Focusspel</em></a>
+              <a href=<%="/" + userid +"/dance"%>><em>Dansspel</em></a>
             </li>
             <!-- <li>
               <a href="#"></a>
@@ -26,10 +26,7 @@
           </ul>
         </nav>
       </header>
-      <section class="character_card">
-        <h2><%= username %></h2>
-        <img src=<%="/images/"+  character + ".svg" %> alt="">
-      </section>
+      <% include partials/usercard %>
     </div>
 
 

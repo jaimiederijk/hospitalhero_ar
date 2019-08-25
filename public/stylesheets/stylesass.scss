@@ -49,7 +49,18 @@ body a-scene.tiny {
 a {
   color: #00B7FF;
 }
+.character_card {
+  background-color: $color_a;
 
+  font-size: 2em;
+  //padding: 1rem;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  left:10%;
+}
 button {
   touch-action: manipulation;
 }

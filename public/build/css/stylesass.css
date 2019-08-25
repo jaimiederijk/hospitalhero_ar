@@ -54,7 +54,10 @@ VARIABLES
   border-radius: 1rem;
   width: 85%;
   margin-top: 1rem;
-  margin-left: 7.5%; }
+  margin-left: 7.5%;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75); }
 
 #startmenu a:nth-of-type(2) {
   background-color: #ff8500; }
@@ -698,6 +701,7 @@ VARIABLES
 VARIABLES
 *********************/
 #login {
+  height: 100vh;
   background-image: url("/images/ziekenhuisdesign.jpg");
   background-size: cover;
   display: flex;
